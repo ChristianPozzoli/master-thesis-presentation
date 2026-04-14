@@ -1,0 +1,10 @@
+services:
+  slidev:
+    build: .
+    ports:
+      - "3030:3030"
+    volumes:
+      - .:/app
+      - /app/node_modules # Questo "nasconde" la cartella locale per usare quella del container
+    environment:
+      - NODE_ENV=development

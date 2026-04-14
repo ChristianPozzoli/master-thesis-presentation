@@ -1,0 +1,14 @@
+{
+  "name": "tesi-slidev",
+  "private": true,
+  "scripts": {
+    "dev": "slidev --remote",
+    "build": "slidev build",
+    "export": "slidev export"
+  },
+  "dependencies": {
+    "@slidev/cli": "latest",
+    "@slidev/theme-seriph": "latest",
+    "playwright-chromium": "latest"
+  }
+}
