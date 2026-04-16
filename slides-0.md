@@ -24,43 +24,22 @@ title: ALESSIA - Affective Latent Evaluation of Social Stress
 Anno Accademico 2024-2025
 
 ---
-layout: two-cols
+layout: center
 ---
 
-# Il Contesto
+## Il Contesto e l'Obiettivo
 
-<br>
+L'evoluzione delle interfacce digitali sta portando a un passaggio cruciale: dalle interazioni puramente transazionali a sistemi **affectively-aware**. 
 
-- Interfacce tradizionali: utente come **dispositivo stateless**
-- **VR**: interazioni immersive con stimoli sociali controllati
-- **Virtual Human**: da NPC scriptati a agenti generativi fotorealistici
-
-<br>
-
-- Nuovi scenari: training sociale, public speaking training, terapia di esposizione, colloqui simulati
-
-::right::
-
-<div class="flex flex-col items-center gap-5">
-	<img src="https://placehold.co/400x225?text=Doubt LA Noire" class="rounded shadow" width="250"/>
-	<img src="https://placehold.co/400x225?text=Interazione VR" class="rounded shadow" width="250"/>
-	<img src="https://placehold.co/400x225?text=NVIDIA ACE" class="rounded shadow" width="250"/>
-</div>
+Il cuore di questa ricerca è lo sviluppo di un modello multimodale capace di rilevare lo **stress sociale** in ambienti di Realtà Virtuale. Il sistema non si limita a una classificazione statica, ma identifica attivamente le **deviazioni dal comportamento "normale"** dell'utente, utilizzando una baseline personalizzata per mappare le anomalie durante l'interazione.
 
 ---
-layout: two-cols
+layout: center
 ---
 
-# Obiettivi
+## Domande di Ricerca (RQ)
 
-<br>
-
-**Sviluppare** un sistema multimodale per il rilevamento non invasivo dello stress sociale in VR.
-
-- Ambiente VR immersivo con un **Virtual Human generativo** come stressor sociale
-- Pipeline di acquisizione **multimodale**: face tracking e gaze tracking
-- Modello **LSTM-VAE** per la stima continua dello stress tramite deviazione dal baseline
-- Validazione tramite segnali fisiologici (**EDA, HRV**) e annotazioni psicologiche (**DANTE**)
+L'indagine si focalizza sulla comprensione di quanto i segnali biometrici non verbali possano essere predittivi dello stato emotivo. In particolare, ci si interroga sull'efficacia comparativa del face tracking e dell'eye tracking come indicatori dello stress sociale. A livello metodologico, la sfida risiede nel validare l'utilizzo dell'errore di ricostruzione generato da un modello LSTM-VAE come metrica quantitativa per identificare tali stati latenti, verificando se una deviazione statistica dai dati di riposo corrisponda effettivamente a un'insorgenza di stress durante un colloquio di lavoro simulato.
 
 ---
 layout: two-cols
@@ -70,14 +49,9 @@ layout: two-cols
 
 **Setup Multimodale**
 
-<br>
-
 - **Meta Quest Pro**: 
   - Face Tracking (espressioni e muscoli facciali)
   - Eye Tracking (fissazioni, dilatazione pupillare)
-
-<br>
-
 - **Empatica EmbracePlus**: 
   - Segnali Fisiologici
   - EDA (Attività Elettrodermica)
@@ -91,17 +65,25 @@ layout: two-cols
 </div>
 
 ---
-layout: two-cols
+
+# Ambiente Virtuale e Agente
+
+**Unreal Engine 5.4 & MetaHuman**
+
+- **Realismo Visivo**: Intervistatore fotorealistico per massimizzare la presenza sociale.
+- **Intelligenza Artificiale**: Integrazione con **Gemini 2.5 Flash-Lite**.
+- **Dialogo Generativo**: Conversazioni coerenti, non scriptate, capaci di adattarsi alle risposte dell'utente in tempo reale.
+- **Obiettivo**: Creare uno stressor sociale credibile e immersivo.
+
 ---
 
-# Il Virtual Human come Stressor
+# L'Intervistatore: Comunicazione Non Verbale
 
-<br>
+**Gestione dello Stress tramite l'Agente**
 
-- Interviewer fotorealistico (**MetaHuman**) con **MetaHuman** e animazioni emotive
-- Dialogo generativo con **LLM**: conversazione contestuale, non scriptata
-- Comunicazione non verbale: **prossemica**, micro-espressioni, gestualità
-- Personalità coerente e **tono valutativo** calibrato per indurre stress sociale
+- **Prossemica Reattiva**: L'agente modifica la distanza e la posizione in base all'interazione.
+- **Linguaggio del Corpo**: Utilizzo di micro-espressioni e gestualità per influenzare lo stato emotivo dell'utente.
+- **Feedback Visivo**: Risposte non verbali immediate che fungono da stimolo per provocare o mitigare lo stress sociale.
 
 ---
 
@@ -115,28 +97,16 @@ layout: two-cols
 4. **Feedback Finale**: Chiusura dell'interazione e debriefing.
 
 ---
-layout: center
----
 
 # Architettura del Modello
 
-<br>
+**LSTM-VAE (Long Short-Term Memory Variational Autoencoder)**
 
-```mermaid
-flowchart LR
-  A[Input\nsequenza] --> B[Encoder\nLSTM]
-  B --> C1[μ]
-  B --> C2[σ]
-  C1 & C2 --> D((z))
-  D --> E[Decoder\nLSTM]
-  E --> F[Ricostruzione\nsequenza]
-  F --> G[Errore di\nricostruzione]
-  G --> H[Stress\nScore]
-```
-
-<br>
-
-> Il modello è addestrato **solo sul baseline**. Durante il colloquio, un alto errore di ricostruzione segnala una deviazione dallo stato di riposo.
+1. **Fase di Baseline**: Il modello apprende la firma biometrica dell'utente in stato di riposo.
+2. **Compressione Latente**: I dati vengono proiettati in uno spazio latente per catturare le caratteristiche essenziali.
+3. **Errore di Ricostruzione**: 
+   - Durante il colloquio, il modello tenta di ricostruire i dati in ingresso.
+   - Un **alto errore di ricostruzione** indica una deviazione dalla baseline $\rightarrow$ **Stress rilevato**.
 
 ---
 
@@ -152,14 +122,12 @@ flowchart LR
 
 # Personalizzazione del Modello
 
-<br>
+**Single-Subject vs Leave-One-Out**
 
-- La risposta allo stress varia **drasticamente tra individui**: un modello generalista non è sufficiente
-- **Single-subject** >> **leave-one-subject-out**: la personalizzazione è essenziale
-- Esplorate due architetture encoder:
-  - **Single-encoder**: tutte le feature in un unico spazio latente
-  - **Multi-encoder**: encoder separati per modalità (face, gaze), fusione tardiva
-- La fusione face + gaze **degrada le performance**: il gaze introduce rumore che "inquina" il segnale facciale
+- **Soggettività dello Stress**: La risposta fisiologica e comportamentale varia drasticamente tra individui.
+- **Risultati**: 
+  - Il regime **Single-Subject** (modello addestrato sull'utente specifico) è nettamente superiore.
+  - Il regime generalista fallisce nel catturare le sfumature individuali, confermando che lo stress sociale non può essere modellato in modo univoco per tutti.
 
 ---
 
