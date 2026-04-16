@@ -77,18 +77,6 @@ layout: two-cols
 
 ---
 
-# Architettura del Modello
-
-**LSTM-VAE (Long Short-Term Memory Variational Autoencoder)**
-
-1. **Fase di Baseline**: Il modello apprende la firma biometrica dell'utente in stato di riposo.
-2. **Compressione Latente**: I dati vengono proiettati in uno spazio latente per catturare le caratteristiche essenziali.
-3. **Errore di Ricostruzione**: 
-   - Durante il colloquio, il modello tenta di ricostruire i dati in ingresso.
-   - Un **alto errore di ricostruzione** indica una deviazione dalla baseline $\rightarrow$ **Stress rilevato**.
-
----
-
 # L'Intervistatore: Comunicazione Non Verbale
 
 **Gestione dello Stress tramite l'Agente**
@@ -107,6 +95,18 @@ layout: two-cols
 2. **Esperienze Passate**: Domande biografiche a basso carico cognitivo.
 3. **Scenario STAR**: Metodo strutturato (Situation, Task, Action, Result) per indurre carico cognitivo e stress prestazionale.
 4. **Feedback Finale**: Chiusura dell'interazione e debriefing.
+
+---
+
+# Architettura del Modello
+
+**LSTM-VAE (Long Short-Term Memory Variational Autoencoder)**
+
+1. **Fase di Baseline**: Il modello apprende la firma biometrica dell'utente in stato di riposo.
+2. **Compressione Latente**: I dati vengono proiettati in uno spazio latente per catturare le caratteristiche essenziali.
+3. **Errore di Ricostruzione**: 
+   - Durante il colloquio, il modello tenta di ricostruire i dati in ingresso.
+   - Un **alto errore di ricostruzione** indica una deviazione dalla baseline $\rightarrow$ **Stress rilevato**.
 
 ---
 
