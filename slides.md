@@ -63,45 +63,69 @@ layout: two-cols
 - Validazione tramite segnali fisiologici (**EDA, HRV**) e annotazioni psicologiche (**DANTE**)
 
 ---
-layout: two-cols
+layout: center
 ---
 
 # Hardware e Acquisizione
 
-**Setup Multimodale**
-
 <br>
 
-- **Meta Quest Pro**: 
-  - Face Tracking (espressioni e muscoli facciali)
-  - Eye Tracking (fissazioni, dilatazione pupillare)
-
-<br>
-
-- **Empatica EmbracePlus**: 
-  - Segnali Fisiologici
-  - EDA (Attività Elettrodermica)
-  - HRV (Variabilità della Frequenza Cardiaca)
-
-::right::
-
-<div class="flex flex-col items-center gap-20">
-  <img class="ml-20" src="https://immersive-display.com/3936-large_default/meta-quest-pro.jpg" width="200" />
-<img class="ml--20" src="https://www.empatica.com/_next/image/?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fggwhkgro%2Fproduction%2F52fdee6020f983db8a0546027d653d8643cace3a-1380x1085.png&w=1200&q=75" width="200" />
+<div class="flex flex-col gap-4">
+  <div v-click class="border border-gray-300 rounded-xl p-5 flex flex-row items-center gap-6">
+    <img src="./images/meta-quest-pro.jpg" width="150" class="rounded-lg shrink-0" />
+    <div class="w-px h-20 bg-gray-300 shrink-0" />
+    <div>
+      <div class="font-bold text-lg mb-2">Meta Quest Pro</div>
+      <div class="flex gap-4 text-sm">
+        <span class="border border-blue-400 text-blue-400 rounded-full px-3 py-1">Face Tracking</span>
+        <span class="border border-blue-400 text-blue-400 rounded-full px-3 py-1">Eye Tracking</span>
+      </div>
+    </div>
+  </div>
+  <div v-click class="border border-gray-300 rounded-xl p-5 flex flex-row items-center gap-6">
+    <img src="./images/empatica.png" width="150" class="rounded-lg shrink-0" />
+    <div class="w-px h-16 bg-gray-300 shrink-0" />
+    <div>
+      <div class="font-bold text-lg mb-2">Empatica EmbracePlus</div>
+      <div class="flex gap-4 text-sm">
+        <span class="border border-blue-400 text-blue-400 rounded-full px-3 py-1">EDA</span>
+        <span class="border border-blue-400 text-blue-400 rounded-full px-3 py-1">HRV</span>
+        <span class="border border-blue-400 text-blue-400 rounded-full px-3 py-1">BVP</span>
+      </div>
+    </div>
+  </div>
 </div>
 
 ---
-layout: two-cols
+layout: center
 ---
 
 # Il Virtual Human come Stressor
 
 <br>
 
-- Interviewer fotorealistico (**MetaHuman**) con **MetaHuman** e animazioni emotive
-- Dialogo generativo con **LLM**: conversazione contestuale, non scriptata
-- Comunicazione non verbale: **prossemica**, micro-espressioni, gestualità
-- Personalità coerente e **tono valutativo** calibrato per indurre stress sociale
+<div class="grid grid-cols-4 gap-4">
+  <div v-click class="border border-gray-300 rounded-xl p-4 flex flex-col items-center gap-2 text-center">
+    <carbon:user-avatar class="text-3xl text-blue-500" />
+    <div class="font-bold">Realismo visivo</div>
+    <div class="text-sm">Interviewer fotorealistico con lip sync e animazioni emotive</div>
+  </div>
+  <div v-click class="border border-gray-300 rounded-xl p-4 flex flex-col items-center gap-2 text-center">
+    <carbon:chat class="text-3xl text-blue-500" />
+    <div class="font-bold">Dialogo generativo</div>
+    <div class="text-sm">Conversazione contestuale e non scriptata tramite LLM</div>
+  </div>
+  <div v-click class="border border-gray-300 rounded-xl p-4 flex flex-col items-center gap-2 text-center">
+    <carbon:pedestrian class="text-3xl text-blue-500" />
+    <div class="font-bold">Comunicazione non verbale</div>
+    <div class="text-sm">Prossemica, micro-espressioni e gestualità calibrate</div>
+  </div>
+  <div v-click class="border border-gray-300 rounded-xl p-4 flex flex-col items-center gap-2 text-center">
+    <carbon:warning-alt class="text-3xl text-blue-500" />
+    <div class="font-bold">Tono valutativo</div>
+    <div class="text-sm">Personalità coerente progettata per indurre stress sociale</div>
+  </div>
+</div>
 
 ---
 
