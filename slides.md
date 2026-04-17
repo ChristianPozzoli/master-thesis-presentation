@@ -108,7 +108,7 @@ layout: center
   <div v-click class="border border-gray-300 rounded-xl p-4 flex flex-col items-center gap-2 text-center">
     <carbon:user-avatar class="text-3xl text-blue-500" />
     <div class="font-bold">Realismo visivo</div>
-    <div class="text-sm">Interviewer fotorealistico con lip sync e animazioni emotive</div>
+    <div class="text-sm">Interviewer fotorealistico con animazioni emotive</div>
   </div>
   <div v-click class="border border-gray-300 rounded-xl p-4 flex flex-col items-center gap-2 text-center">
     <carbon:chat class="text-3xl text-blue-500" />
@@ -128,15 +128,89 @@ layout: center
 </div>
 
 ---
+layout: center
+---
 
 # Struttura del Colloquio
 
-**Fasi dell'Esperimento (10-15 minuti)**
+<div class="w-full max-w-5xl mx-auto space-y-12 mt-10">
+  
+  <div class="relative">
+    <div class="text-sm font-semibold tracking-wide text-blue-700 mb-10 text-center w-full uppercase">
+      Timeline Demo
+    </div>
+    <div class="flex items-center justify-between px-4">
+      <div class="flex flex-col items-center z-10">
+        <div class="w-5 h-5 rounded-full bg-blue-500 ring-4 ring-blue-100" />
+        <div class="absolute mt-8 text-xs text-center w-24 font-medium leading-tight">Questionario<br>Demografico</div>
+      </div>
+      <div class="flex-1 h-0.5 bg-blue-300 relative mx-1">
+        <div class="absolute right-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 border-t-2 border-r-2 border-blue-300 rotate-45"></div>
+      </div>
+      <div class="flex flex-col items-center z-10">
+        <div class="w-5 h-5 rounded-full bg-blue-500 ring-4 ring-blue-100" />
+        <div class="absolute mt-8 text-xs text-center w-24 font-medium leading-tight">Selezione<br>lavoro</div>
+      </div>
+      <div class="flex-1 h-0.5 bg-blue-300 relative mx-1">
+        <div class="absolute right-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 border-t-2 border-r-2 border-blue-300 rotate-45"></div>
+      </div>
+      <div class="flex flex-col items-center z-10">
+        <div class="w-5 h-5 rounded-full bg-blue-500 ring-4 ring-blue-100" />
+        <div class="absolute mt-8 text-xs text-center w-28 font-medium leading-tight">Intervista<br>Fisiologici</div>
+      </div>
+      <div class="flex-1 h-0.5 bg-blue-300 relative mx-1">
+        <div class="absolute right-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 border-t-2 border-r-2 border-blue-300 rotate-45"></div>
+      </div>
+      <div class="flex flex-col items-center z-10">
+        <div class="w-5 h-5 rounded-full bg-blue-500 ring-4 ring-blue-100" />
+        <div class="absolute mt-8 text-xs text-center w-24 font-medium leading-tight">Annotazione<br>DANTE</div>
+      </div>
+      <div class="flex-1 h-0.5 bg-blue-300 relative mx-1">
+        <div class="absolute right-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 border-t-2 border-r-2 border-blue-300 rotate-45"></div>
+      </div>
+      <div class="flex flex-col items-center z-10">
+        <div class="w-5 h-5 rounded-full bg-blue-500 ring-4 ring-blue-100" />
+        <div class="absolute mt-8 text-xs text-center w-24 font-medium leading-tight">Questionario<br>Valutativo</div>
+      </div>
+    </div>
+  </div>
 
-1. **Presentazione**: Accoglienza e calibrazione iniziale.
-2. **Esperienze Passate**: Domande biografiche a basso carico cognitivo.
-3. **Scenario STAR**: Metodo strutturato (Situation, Task, Action, Result) per indurre carico cognitivo e stress prestazionale.
-4. **Feedback Finale**: Chiusura dell'interazione e debriefing.
+  <div class="h-16"></div>
+
+  <div class="relative">
+    <div class="text-sm font-semibold tracking-wide text-indigo-700 mb-10 text-center w-full uppercase">
+      Timeline Colloquio
+    </div>
+    <div class="flex items-center justify-between px-10">
+      <div class="flex flex-col items-center z-10">
+        <div class="w-5 h-5 rounded-full bg-indigo-500 ring-4 ring-indigo-100" />
+        <div class="absolute mt-8 text-xs text-center w-24 font-medium leading-tight">Presentazione</div>
+      </div>
+      <div class="flex-1 h-0.5 bg-indigo-300 relative mx-1">
+        <div class="absolute right-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 border-t-2 border-r-2 border-indigo-300 rotate-45"></div>
+      </div>
+      <div class="flex flex-col items-center z-10">
+        <div class="w-5 h-5 rounded-full bg-indigo-500 ring-4 ring-indigo-100" />
+        <div class="absolute mt-8 text-xs text-center w-24 font-medium leading-tight">Esperienze<br>passate</div>
+      </div>
+      <div class="flex-1 h-0.5 bg-indigo-300 relative mx-1">
+        <div class="absolute right-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 border-t-2 border-r-2 border-indigo-300 rotate-45"></div>
+      </div>
+      <div class="flex flex-col items-center z-10">
+        <div class="w-5 h-5 rounded-full bg-indigo-500 ring-4 ring-indigo-100" />
+        <div class="absolute mt-8 text-xs text-center w-24 font-medium leading-tight">Scenario<br>STAR</div>
+      </div>
+      <div class="flex-1 h-0.5 bg-indigo-300 relative mx-1">
+        <div class="absolute right-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 border-t-2 border-r-2 border-indigo-300 rotate-45"></div>
+      </div>
+      <div class="flex flex-col items-center z-10">
+        <div class="w-5 h-5 rounded-full bg-indigo-500 ring-4 ring-indigo-100" />
+        <div class="absolute mt-8 text-xs text-center w-24 font-medium leading-tight">Feedback<br>finale</div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 ---
 layout: center
