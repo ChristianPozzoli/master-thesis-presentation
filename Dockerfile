@@ -14,4 +14,4 @@ COPY . .
 
 EXPOSE 3030
 
-CMD ["npm", "run", "dev"]
+CMD ["npx", "slidev", "--remote", "--force"]

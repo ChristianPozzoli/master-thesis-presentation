@@ -8,3 +8,4 @@ services:
       - /app/node_modules # Questo "nasconde" la cartella locale per usare quella del container
     environment:
       - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
