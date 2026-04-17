@@ -13,5 +13,6 @@ RUN npm install
 COPY . .
 
 EXPOSE 3030
+EXPOSE 3000
 
 CMD ["npx", "slidev", "--remote", "--force"]
