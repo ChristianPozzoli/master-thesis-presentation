@@ -133,84 +133,87 @@ layout: center
 
 # Struttura del Colloquio
 
-<div class="w-full max-w-5xl mx-auto space-y-12 mt-10">
-  
-  <div class="relative">
-    <div class="text-sm font-semibold tracking-wide text-blue-700 mb-10 text-center w-full uppercase">
-      Timeline Demo
+<div class="w-full max-w-5xl mx-auto mt-6 relative">
+  <div class="relative z-20">
+    <div class="text-s font-bold tracking-widest text-blue-700 mb-10 text-center w-full uppercase opacity-50">
+      Fase Sperimentale
     </div>
-    <div class="flex items-center justify-between px-4">
-      <div class="flex flex-col items-center z-10">
-        <div class="w-5 h-5 rounded-full bg-blue-500 ring-4 ring-blue-100" />
-        <div class="absolute mt-8 text-xs text-center w-24 font-medium leading-tight">Questionario<br>Demografico</div>
+    <div v-click class="hidden"></div>
+    <div class="flex items-start justify-between px-4 pb-4 gap-2">
+      <div :class="$clicks >= 1 ? 'opacity-75' : 'opacity-100'" class="flex flex-col items-center w-32 text-center transition-opacity duration-500">
+        <div class="w-6 h-6 rounded-full bg-blue-600 ring-4 ring-blue-50" />
+        <div class="mt-2 text-[10px] font-medium leading-tight">Questionario<br>Demografico</div>
       </div>
-      <div class="flex-1 h-0.5 bg-blue-300 relative mx-1">
-        <div class="absolute right-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 border-t-2 border-r-2 border-blue-300 rotate-45"></div>
+      <div class="flex-1 h-0.5 bg-blue-200 relative mx-1 self-center">
+        <div class="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 border-t-2 border-r-2 border-blue-300 rotate-45"></div>
       </div>
-      <div class="flex flex-col items-center z-10">
-        <div class="w-5 h-5 rounded-full bg-blue-500 ring-4 ring-blue-100" />
-        <div class="absolute mt-8 text-xs text-center w-24 font-medium leading-tight">Selezione<br>lavoro</div>
+      <div :class="$clicks >= 1 ? 'opacity-75' : 'opacity-100'" class="flex flex-col items-center w-32 text-center transition-opacity duration-500">
+        <div class="w-6 h-6 rounded-full bg-blue-600 ring-4 ring-blue-50" />
+        <div class="mt-2 text-[10px] font-medium leading-tight">Selezione<br>Lavoro</div>
       </div>
-      <div class="flex-1 h-0.5 bg-blue-300 relative mx-1">
-        <div class="absolute right-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 border-t-2 border-r-2 border-blue-300 rotate-45"></div>
+      <div class="flex-1 h-0.5 bg-blue-200 relative mx-1 self-center">
+        <div class="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 border-t-2 border-r-2 border-blue-300 rotate-45"></div>
       </div>
-      <div class="flex flex-col items-center z-10">
-        <div class="w-5 h-5 rounded-full bg-blue-500 ring-4 ring-blue-100" />
-        <div class="absolute mt-8 text-xs text-center w-28 font-medium leading-tight">Intervista<br>Fisiologici</div>
+      <div class="flex flex-col items-center w-32 relative text-center">
+        <div :class="$clicks >= 1 ? 'w-10 h-10' : 'w-6 h-6'" class="rounded-full bg-blue-600 ring-4 ring-blue-100 shadow-lg z-30 transition-all duration-500" />
+        <div :class="$clicks >= 1 ? 'font-bold' : ''" class="mt-2 text-xs text-blue-700 leading-tight">Intervista<br>Fisiologici</div>
       </div>
-      <div class="flex-1 h-0.5 bg-blue-300 relative mx-1">
-        <div class="absolute right-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 border-t-2 border-r-2 border-blue-300 rotate-45"></div>
+      <div class="flex-1 h-0.5 bg-blue-200 relative mx-1 self-center">
+        <div class="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 border-t-2 border-r-2 border-blue-300 rotate-45"></div>
       </div>
-      <div class="flex flex-col items-center z-10">
-        <div class="w-5 h-5 rounded-full bg-blue-500 ring-4 ring-blue-100" />
-        <div class="absolute mt-8 text-xs text-center w-24 font-medium leading-tight">Annotazione<br>DANTE</div>
+      <div :class="$clicks >= 1 ? 'opacity-75' : 'opacity-100'" class="flex flex-col items-center w-32 text-center transition-opacity duration-500">
+        <div class="w-6 h-6 rounded-full bg-blue-600 ring-4 ring-blue-50" />
+        <div class="mt-2 text-[10px] font-medium leading-tight">Annotazione<br>DANTE</div>
       </div>
-      <div class="flex-1 h-0.5 bg-blue-300 relative mx-1">
-        <div class="absolute right-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 border-t-2 border-r-2 border-blue-300 rotate-45"></div>
+      <div class="flex-1 h-0.5 bg-blue-200 relative mx-1 self-center">
+        <div class="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 border-t-2 border-r-2 border-blue-300 rotate-45"></div>
       </div>
-      <div class="flex flex-col items-center z-10">
-        <div class="w-5 h-5 rounded-full bg-blue-500 ring-4 ring-blue-100" />
-        <div class="absolute mt-8 text-xs text-center w-24 font-medium leading-tight">Questionario<br>Valutativo</div>
+      <div :class="$clicks >= 1 ? 'opacity-75' : 'opacity-100'" class="flex flex-col items-center w-32 text-center transition-opacity duration-500">
+        <div class="w-6 h-6 rounded-full bg-blue-600 ring-4 ring-blue-50" />
+        <div class="mt-2 text-[10px] font-medium leading-tight">Questionario<br>Valutativo</div>
       </div>
     </div>
   </div>
 
-  <div class="h-16"></div>
-
-  <div class="relative">
-    <div class="text-sm font-semibold tracking-wide text-indigo-700 mb-10 text-center w-full uppercase">
-      Timeline Colloquio
-    </div>
-    <div class="flex items-center justify-between px-10">
-      <div class="flex flex-col items-center z-10">
-        <div class="w-5 h-5 rounded-full bg-indigo-500 ring-4 ring-indigo-100" />
-        <div class="absolute mt-8 text-xs text-center w-24 font-medium leading-tight">Presentazione</div>
+  <div class="relative bg-white rounded-xl p-6 border-2 border-indigo-200 shadow-xl mx-8" v-click="2">
+    <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-5 h-5 bg-white border-t-2 border-l-2 border-indigo-200 rotate-45"></div>
+    <div class="text-xs font-bold text-indigo-500 bg-indigo-50 px-2 py-0.5 rounded border border-indigo-100 uppercase tracking-tighter w-fit mx-auto mb-5">Struttura Colloquio</div>
+    <div class="px-2">
+      <div class="flex items-center justify-between gap-2">
+        <div class="w-24 flex justify-center z-10">
+          <div class="w-8 h-6 rounded-full bg-indigo-500" />
+        </div>
+        <div class="flex-1 h-0.5 bg-indigo-200 relative mx-1 self-center">
+          <div class="absolute right-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 border-t border-r border-indigo-300 rotate-45"></div>
+        </div>
+        <div class="w-24 flex justify-center z-10">
+          <div class="w-8 h-6 rounded-full bg-indigo-500" />
+        </div>
+        <div class="flex-1 h-0.5 bg-indigo-200 relative mx-1 self-center">
+          <div class="absolute right-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 border-t border-r border-indigo-300 rotate-45"></div>
+        </div>
+        <div class="w-24 flex justify-center z-10">
+          <div class="w-8 h-6 rounded-full bg-indigo-500" />
+        </div>
+        <div class="flex-1 h-0.5 bg-indigo-200 relative mx-1 self-center">
+          <div class="absolute right-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 border-t border-r border-indigo-300 rotate-45"></div>
+        </div>
+        <div class="w-24 flex justify-center z-10">
+          <div class="w-8 h-6 rounded-full bg-indigo-500" />
+        </div>
       </div>
-      <div class="flex-1 h-0.5 bg-indigo-300 relative mx-1">
-        <div class="absolute right-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 border-t-2 border-r-2 border-indigo-300 rotate-45"></div>
-      </div>
-      <div class="flex flex-col items-center z-10">
-        <div class="w-5 h-5 rounded-full bg-indigo-500 ring-4 ring-indigo-100" />
-        <div class="absolute mt-8 text-xs text-center w-24 font-medium leading-tight">Esperienze<br>passate</div>
-      </div>
-      <div class="flex-1 h-0.5 bg-indigo-300 relative mx-1">
-        <div class="absolute right-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 border-t-2 border-r-2 border-indigo-300 rotate-45"></div>
-      </div>
-      <div class="flex flex-col items-center z-10">
-        <div class="w-5 h-5 rounded-full bg-indigo-500 ring-4 ring-indigo-100" />
-        <div class="absolute mt-8 text-xs text-center w-24 font-medium leading-tight">Scenario<br>STAR</div>
-      </div>
-      <div class="flex-1 h-0.5 bg-indigo-300 relative mx-1">
-        <div class="absolute right-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 border-t-2 border-r-2 border-indigo-300 rotate-45"></div>
-      </div>
-      <div class="flex flex-col items-center z-10">
-        <div class="w-5 h-5 rounded-full bg-indigo-500 ring-4 ring-indigo-100" />
-        <div class="absolute mt-8 text-xs text-center w-24 font-medium leading-tight">Feedback<br>finale</div>
+      <div class="mt-2 flex items-start justify-between gap-2">
+        <div class="w-24 text-xs text-center font-semibold text-indigo-900 leading-tight">Presentazione</div>
+        <div class="flex-1"></div>
+        <div class="w-24 text-xs text-center font-semibold text-indigo-900 leading-tight">Esperienze<br>Passate</div>
+        <div class="flex-1"></div>
+        <div class="w-24 text-xs text-center font-semibold text-indigo-900 leading-tight">Scenario<br>STAR</div>
+        <div class="flex-1"></div>
+        <div class="w-24 text-xs text-center font-semibold text-indigo-900 leading-tight">Feedback<br>Finale</div>
       </div>
     </div>
   </div>
 </div>
-
 
 ---
 layout: center
