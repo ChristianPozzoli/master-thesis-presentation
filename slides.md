@@ -64,12 +64,12 @@ layout: two-cols
 
 ---
 
-# Hardware e Acquisizione
+# Hardware, Tool e Acquisizione
 
 <br>
 
 <div class="grid grid-cols-2 gap-4">
-  <div v-click class="border border-gray-300 rounded-xl p-5 flex flex-row items-center gap-6">
+  <div v-click class="hw-grid-card border border-gray-300 rounded-xl p-5 flex flex-row items-center gap-6">
     <img src="https://placehold.co/400x400?text=Unreal" width="150" class="rounded-lg shrink-0" />
     <div class="w-px h-20 bg-gray-300 shrink-0" />
     <div class="flex flex-1 flex-col items-center justify-center text-center">
@@ -80,7 +80,7 @@ layout: two-cols
       </div>
     </div>
   </div>
-  <div v-click class="border border-gray-300 rounded-xl p-5 flex flex-row items-center gap-6">
+  <div v-click class="hw-grid-card border border-gray-300 rounded-xl p-5 flex flex-row items-center gap-6">
     <img src="./images/meta-quest-pro.jpg" width="150" class="rounded-lg shrink-0" />
     <div class="w-px h-20 bg-gray-300 shrink-0" />
     <div class="flex flex-1 flex-col items-center justify-center text-center">
@@ -91,7 +91,7 @@ layout: two-cols
       </div>
     </div>
   </div>
-  <div v-click class="border border-gray-300 rounded-xl p-5 flex flex-row items-center gap-6">
+  <div v-click class="hw-grid-card border border-gray-300 rounded-xl p-5 flex flex-row items-center gap-6">
     <img src="./images/empatica.png" width="150" class="rounded-lg shrink-0" />
     <div class="w-px h-16 bg-gray-300 shrink-0" />
     <div class="flex flex-1 flex-col items-center justify-center text-center">
@@ -103,7 +103,7 @@ layout: two-cols
       </div>
     </div>
   </div>
-  <div v-click class="border border-gray-300 rounded-xl p-5 flex flex-row items-center gap-6">
+  <div v-click class="hw-grid-card border border-gray-300 rounded-xl p-5 flex flex-row items-center gap-6">
     <img src="https://placehold.co/400x400?text=DANTE" width="150" class="rounded-lg shrink-0" />
     <div class="w-px h-16 bg-gray-300 shrink-0" />
     <div class="flex flex-1 flex-col items-center justify-center text-center">
@@ -114,6 +114,21 @@ layout: two-cols
     </div>
   </div>
 </div>
+
+<style>
+.hw-grid-card {
+  transition: transform 550ms cubic-bezier(0.22, 1, 0.36, 1), opacity 550ms cubic-bezier(0.22, 1, 0.36, 1), filter 550ms cubic-bezier(0.22, 1, 0.36, 1);
+  transform-origin: center center;
+  will-change: transform, opacity, filter;
+}
+
+.hw-grid-card.slidev-vclick-hidden {
+  opacity: 0;
+  transform: translateY(50px) scale(0.97);
+  filter: blur(4px);
+}
+
+</style>
 
 ---
 
@@ -155,13 +170,14 @@ layout: two-cols
 
 <style>
 .vh-stressor-card {
-  transition: transform 550ms cubic-bezier(0.22, 1, 0.36, 1), opacity 550ms cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: transform, opacity;
+  transition: transform 550ms cubic-bezier(0.22, 1, 0.36, 1), opacity 550ms cubic-bezier(0.22, 1, 0.36, 1), filter 550ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform, opacity, filter;
 }
 
 .vh-stressor-card.slidev-vclick-hidden {
   opacity: 0;
-  transform: translateX(-42px);
+  transform: translateX(-40px);
+  filter: blur(5px);
 }
 </style>
 
