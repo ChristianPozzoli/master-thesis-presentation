@@ -48,19 +48,122 @@ layout: two-cols
 </div>
 
 ---
-layout: two-cols
----
 
 # Obiettivi
 
-<br>
+<div class="mt-6 max-w-5xl mx-auto">
+  <div class="text-center text-[26px] leading-tight font-semibold text-slate-800 max-w-4xl mx-auto">
+    Sviluppare un sistema multimodale per il rilevamento non invasivo dello stress sociale in VR
+  </div>
 
-**Sviluppare** un sistema multimodale per il rilevamento non invasivo dello stress sociale in VR.
+  <div class="objectives-timeline mt-10">
+    <div class="objectives-line"></div>
+    <div class="objectives-step objectives-step-top">
+      <div class="objectives-card">Virtual Human<br>generativo</div>
+      <div class="objectives-connector"></div>
+      <div class="objectives-dot"></div>
+    </div>
+    <div class="objectives-step objectives-step-bottom">
+      <div class="objectives-card">Pipeline<br>multimodale</div>
+      <div class="objectives-connector"></div>
+      <div class="objectives-dot"></div>
+    </div>
+    <div class="objectives-step objectives-step-top">
+      <div class="objectives-card">LSTM-VAE</div>
+      <div class="objectives-connector"></div>
+      <div class="objectives-dot"></div>
+    </div>
+    <div class="objectives-step objectives-step-bottom">
+      <div class="objectives-card">Validazione</div>
+      <div class="objectives-connector"></div>
+      <div class="objectives-dot"></div>
+    </div>
+  </div>
+</div>
 
-- Ambiente VR immersivo con un **Virtual Human generativo** come stressor sociale
-- Pipeline di acquisizione **multimodale**: face tracking e gaze tracking
-- Modello **LSTM-VAE** per la stima continua dello stress tramite deviazione dal baseline
-- Validazione tramite segnali fisiologici (**EDA, HRV**) e annotazioni psicologiche (**DANTE**)
+<style>
+.objectives-timeline {
+  position: relative;
+  height: 300px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  column-gap: 0.75rem;
+}
+
+.objectives-line {
+  position: absolute;
+  left: 1.25rem;
+  right: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 4px;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, #93c5fd, #3b82f6, #93c5fd);
+}
+
+.objectives-step {
+  position: relative;
+}
+
+.objectives-dot {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 16px;
+  border-radius: 9999px;
+  background: #2563eb;
+  box-shadow: 0 0 0 6px #eff6ff;
+  z-index: 3;
+}
+
+.objectives-card {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 170px;
+  max-width: 190px;
+  text-align: center;
+  font-size: 0.95rem;
+  line-height: 1.25rem;
+  font-weight: 600;
+  color: #1e3a8a;
+  background: #ffffff;
+  border: 1px solid #93c5fd;
+  border-radius: 0.85rem;
+  padding: 0.6rem 0.8rem;
+  box-shadow: 0 8px 22px -16px rgba(30, 58, 138, 0.55);
+  z-index: 2;
+}
+
+.objectives-connector {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  background: #60a5fa;
+  z-index: 1;
+}
+
+.objectives-step-top .objectives-card {
+  bottom: calc(50% + 48px);
+}
+
+.objectives-step-top .objectives-connector {
+  bottom: calc(50% + 10px);
+  height: 38px;
+}
+
+.objectives-step-bottom .objectives-card {
+  top: calc(50% + 48px);
+}
+
+.objectives-step-bottom .objectives-connector {
+  top: calc(50% + 10px);
+  height: 38px;
+}
+</style>
 
 ---
 
@@ -282,8 +385,6 @@ layout: two-cols
   </div>
 </div>
 
----
-layout: center
 ---
 
 # Architettura del Modello
