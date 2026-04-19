@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "dev": "slidev --remote",
-    "build": "slidev build",
+    "build": "slidev build --base /master-thesis-presentation/",
     "export": "slidev export"
   },
   "dependencies": {
