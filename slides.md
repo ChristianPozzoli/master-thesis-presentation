@@ -457,88 +457,144 @@ layout: two-cols
 # Personalizzazione Modello
 
 <br>
-<!--
-- La risposta allo stress varia **drasticamente tra individui**: un modello generalista non è sufficiente
-- **Single-subject** >> **leave-one-subject-out**: la personalizzazione è essenziale
-- Esplorate due architetture encoder:
-  - **Single-encoder**: tutte le feature in un unico spazio latente
-  - **Multi-encoder**: encoder separati per modalità (face, gaze), fusione tardiva
-- La fusione face + gaze **degrada le performance**: il gaze introduce rumore che "inquina" il segnale facciale
--->
 
-<!--
-* **Personalizzazione**: Variabilità inter-soggettiva critica.
-* **Single-subject**: Superiore alla cross-validation standard.
-* **Multi-encoder**: Modalità separate per Face e Gaze.
-* **Gaze Issue**: Introduce rumore e degrada il segnale.
--->
+<div v-click class="hidden"></div>
+<div v-click class="hidden"></div>
 
-- Necessità Personalizzazione
-- Approccio Single-subject
-- Architetture Testate:
-    - Single-encoder: Spazio latente unico.
-    - Multi-encoder: Fusione tardiva.
-- Rumore Gaze
+<div class="mt-4 space-y-4 text-lg items-center">
+  <div class="flex items-center gap-2" :class="$clicks === 0 ? 'font-bold text-blue-700 font-size-7' : 'text-slate-500'">
+    <span class="w-6 inline-block" :class="$clicks === 0 ? 'opacity-100' : 'opacity-0'">&gt;</span>
+    <span class="text-center">Single-Subject<br>vs<br>Leave One Out</span>
+  </div>
+  <div class="flex items-center gap-2" :class="$clicks === 1 ? 'font-bold text-blue-700 font-size-7' : 'text-slate-500'">
+    <span class="w-6 inline-block" :class="$clicks === 1 ? 'opacity-100' : 'opacity-0'">&gt;</span>
+    <span class="text-center">Single-encoder<br>vs<br>Multi-encoder</span>
+  </div>
+  <div class="flex items-center gap-2" :class="$clicks >= 2 ? 'font-bold text-blue-700 font-size-7' : 'text-slate-500'">
+    <span class="w-6 inline-block" :class="$clicks >= 2 ? 'opacity-100' : 'opacity-0'">&gt;</span>
+    <span class="text-center">Rumore Gaze</span>
+  </div>
+</div>
 
 ::right::
 
-<div class="h-full w-full max-w-4xl mx-auto mt-15 flex flex-col">
-  <div class="flex justify-center gap-6 mb-4">
-    <div class="flex items-center gap-2"><div class="w-3 h-3 bg-blue-500 rounded"></div><span class="text-xs">Gaze (Single)</span></div>
-    <div class="flex items-center gap-2"><div class="w-3 h-3 bg-blue-300 rounded"></div><span class="text-xs">Gaze (LOO)</span></div>
-    <div class="flex items-center gap-2"><div class="w-3 h-3 bg-indigo-600 rounded"></div><span class="text-xs">Face (Single)</span></div>
-    <div class="flex items-center gap-2"><div class="w-3 h-3 bg-indigo-400 rounded"></div><span class="text-xs">Face (LOO)</span></div>
+<div class="relative h-[430px] w-full max-w-4xl mx-auto mt-15">
+
+  <div class="absolute inset-0 flex flex-col transition-opacity duration-300" :class="$clicks === 0 ? 'opacity-100 z-20' : 'opacity-0 z-0 pointer-events-none'">
+    <div class="flex justify-center gap-6 mb-4">
+      <div class="flex items-center gap-2"><div class="w-3 h-3 bg-blue-500 rounded"></div><span class="text-xs">Gaze (Single)</span></div>
+      <div class="flex items-center gap-2"><div class="w-3 h-3 bg-blue-300 rounded"></div><span class="text-xs">Gaze (LOO)</span></div>
+      <div class="flex items-center gap-2"><div class="w-3 h-3 bg-indigo-600 rounded"></div><span class="text-xs">Face (Single)</span></div>
+      <div class="flex items-center gap-2"><div class="w-3 h-3 bg-indigo-400 rounded"></div><span class="text-xs">Face (LOO)</span></div>
+    </div>
+    <div class="relative h-90 border-b border-gray-400 flex items-end justify-between px-4 pb-0">
+      <div class="flex flex-col items-center flex-1">
+        <div class="flex items-end gap-1 h-100 w-full justify-center">
+          <div class="w-3 bg-blue-500 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 0 ? '72.7%' : '0%' }"></div>
+          <div class="w-3 bg-blue-300 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 0 ? '70.0%' : '0%' }"></div>
+          <div class="w-3 bg-indigo-600 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 0 ? '77.8%' : '0%' }"></div>
+          <div class="w-3 bg-indigo-400 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 0 ? '76.2%' : '0%' }"></div>
+        </div>
+        <span class="text-[10px] font-bold mt-2 uppercase">AP</span>
+      </div>
+      <div class="flex flex-col items-center flex-1">
+        <div class="flex items-end gap-1 h-100 w-full justify-center">
+          <div class="w-3 bg-blue-500 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 0 ? '63.0%' : '0%' }"></div>
+          <div class="w-3 bg-blue-300 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 0 ? '60.7%' : '0%' }"></div>
+          <div class="w-3 bg-indigo-600 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 0 ? '71.4%' : '0%' }"></div>
+          <div class="w-3 bg-indigo-400 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 0 ? '69.3%' : '0%' }"></div>
+        </div>
+        <span class="text-[10px] font-bold mt-2 uppercase">F1</span>
+      </div>
+      <div class="flex flex-col items-center flex-1">
+        <div class="flex items-end gap-1 h-100 w-full justify-center">
+          <div class="w-3 bg-blue-500 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 0 ? '62.3%' : '0%' }"></div>
+          <div class="w-3 bg-blue-300 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 0 ? '60.3%' : '0%' }"></div>
+          <div class="w-3 bg-indigo-600 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 0 ? '76.1%' : '0%' }"></div>
+          <div class="w-3 bg-indigo-400 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 0 ? '73.0%' : '0%' }"></div>
+        </div>
+        <span class="text-[10px] font-bold mt-2 uppercase leading-none text-center">AUC<br>exp</span>
+      </div>
+      <div class="flex flex-col items-center flex-1">
+        <div class="flex items-end gap-1 h-100 w-full justify-center">
+          <div class="w-3 bg-blue-500 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 0 ? '54.2%' : '0%' }"></div>
+          <div class="w-3 bg-blue-300 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 0 ? '52.6%' : '0%' }"></div>
+          <div class="w-3 bg-indigo-600 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 0 ? '67.8%' : '0%' }"></div>
+          <div class="w-3 bg-indigo-400 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 0 ? '65.0%' : '0%' }"></div>
+        </div>
+        <span class="text-[10px] font-bold mt-2 uppercase leading-none text-center">AUC<br>dante</span>
+      </div>
+      <div class="flex flex-col items-center flex-1">
+        <div class="flex items-end gap-1 h-100 w-full justify-center">
+          <div class="w-3 bg-blue-500 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 0 ? '51.1%' : '0%' }"></div>
+          <div class="w-3 bg-blue-300 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 0 ? '51.7%' : '0%' }"></div>
+          <div class="w-3 bg-indigo-600 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 0 ? '60.7%' : '0%' }"></div>
+          <div class="w-3 bg-indigo-400 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 0 ? '60.5%' : '0%' }"></div>
+        </div>
+        <span class="text-[10px] font-bold mt-2 uppercase leading-none text-center">AUC BIN<br>dante</span>
+      </div>
+    </div>
+    <p class="text-[10px] text-gray-400 italic text-center">
+      Confronto tra Single e Leave-One-Out (LOO) per Gaze e Face.
+    </p>
   </div>
-  <div class="relative h-90 border-b border-gray-400 flex items-end justify-between px-4 pb-0">
-    <div class="flex flex-col items-center flex-1">
-      <div class="flex items-end gap-1 h-100 w-full justify-center">
-        <div v-click="1" class="w-3 bg-blue-500 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks >= 1 ? '72.7%' : '0%' }"></div>
-        <div v-click="1" class="w-3 bg-blue-300 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks >= 1 ? '70.0%' : '0%' }"></div>
-        <div v-click="2" class="w-3 bg-indigo-600 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks >= 2 ? '77.8%' : '0%' }"></div>
-        <div v-click="2" class="w-3 bg-indigo-400 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks >= 2 ? '76.2%' : '0%' }"></div>
+
+  <div class="absolute inset-0 flex flex-col transition-opacity duration-300" :class="$clicks === 1 ? 'opacity-100 z-20' : 'opacity-0 z-0 pointer-events-none'">
+      <div class="flex justify-center gap-6 mb-4">
+        <div class="flex items-center gap-2"><div class="w-3 h-3 bg-blue-500 rounded"></div><span class="text-xs">Gaze (Single-Enc)</span></div>
+        <div class="flex items-center gap-2"><div class="w-3 h-3 bg-indigo-500 rounded"></div><span class="text-xs">Face (Single-Enc)</span></div>
+        <div class="flex items-center gap-2"><div class="w-3 h-3 bg-emerald-500 rounded"></div><span class="text-xs">Gaze+Face (Multi-Enc)</span></div>
       </div>
-      <span class="text-[10px] font-bold mt-2 uppercase">AP</span>
-    </div>
-    <div class="flex flex-col items-center flex-1">
-      <div class="flex items-end gap-1 h-100 w-full justify-center">
-        <div v-click="1" class="w-3 bg-blue-500 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks >= 1 ? '63.0%' : '0%' }"></div>
-        <div v-click="1" class="w-3 bg-blue-300 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks >= 1 ? '60.7%' : '0%' }"></div>
-        <div v-click="2" class="w-3 bg-indigo-600 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks >= 2 ? '71.4%' : '0%' }"></div>
-        <div v-click="2" class="w-3 bg-indigo-400 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks >= 2 ? '69.3%' : '0%' }"></div>
+      <div class="relative h-90 border-b border-gray-400 flex items-end justify-between px-4 pb-0">
+        <div class="flex flex-col items-center flex-1">
+          <div class="flex items-end gap-1.5 h-100 w-full justify-center">
+            <div class="w-4 bg-blue-500 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 1 ? '68.4%' : '0%' }"></div>
+            <div class="w-4 bg-indigo-500 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 1 ? '77.8%' : '0%' }"></div>
+            <div class="w-4 bg-emerald-500 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 1 ? '77.1%' : '0%' }"></div>
+          </div>
+          <span class="text-[10px] font-bold mt-2 uppercase">AP</span>
+        </div>
+        <div class="flex flex-col items-center flex-1">
+          <div class="flex items-end gap-1.5 h-100 w-full justify-center">
+            <div class="w-4 bg-blue-500 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 1 ? '59.7%' : '0%' }"></div>
+            <div class="w-4 bg-indigo-500 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 1 ? '71.4%' : '0%' }"></div>
+            <div class="w-4 bg-emerald-500 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 1 ? '68.5%' : '0%' }"></div>
+          </div>
+          <span class="text-[10px] font-bold mt-2 uppercase">F1</span>
+        </div>
+        <div class="flex flex-col items-center flex-1">
+          <div class="flex items-end gap-1.5 h-100 w-full justify-center">
+            <div class="w-4 bg-blue-500 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 1 ? '62.2%' : '0%' }"></div>
+            <div class="w-4 bg-indigo-500 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 1 ? '76.4%' : '0%' }"></div>
+            <div class="w-4 bg-emerald-500 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 1 ? '69.4%' : '0%' }"></div>
+          </div>
+          <span class="text-[10px] font-bold mt-2 uppercase leading-none text-center">AUC<br>exp</span>
+        </div>
+        <div class="flex flex-col items-center flex-1">
+          <div class="flex items-end gap-1.5 h-100 w-full justify-center">
+            <div class="w-4 bg-blue-500 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 1 ? '55.4%' : '0%' }"></div>
+            <div class="w-4 bg-indigo-500 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 1 ? '69.9%' : '0%' }"></div>
+            <div class="w-4 bg-emerald-500 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 1 ? '58.1%' : '0%' }"></div>
+          </div>
+          <span class="text-[10px] font-bold mt-2 uppercase leading-none text-center">AUC<br>dante</span>
+        </div>
+        <div class="flex flex-col items-center flex-1">
+          <div class="flex items-end gap-1.5 h-100 w-full justify-center">
+            <div class="w-4 bg-blue-500 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 1 ? '50.7%' : '0%' }"></div>
+            <div class="w-4 bg-indigo-500 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 1 ? '62.6%' : '0%' }"></div>
+            <div class="w-4 bg-emerald-500 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 1 ? '52.7%' : '0%' }"></div>
+          </div>
+          <span class="text-[10px] font-bold mt-2 uppercase leading-none text-center">AUC BIN<br>dante</span>
+        </div>
       </div>
-      <span class="text-[10px] font-bold mt-2 uppercase">F1</span>
+      <p class="text-[10px] text-gray-400 mt-4 italic text-center">
+        Confronto tra varianti Unimodali e architettura Multimodale (Late-Fusion).
+      </p>
     </div>
-    <div class="flex flex-col items-center flex-1">
-      <div class="flex items-end gap-1 h-100 w-full justify-center">
-        <div v-click="1" class="w-3 bg-blue-500 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks >= 1 ? '62.3%' : '0%' }"></div>
-        <div v-click="1" class="w-3 bg-blue-300 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks >= 1 ? '60.3%' : '0%' }"></div>
-        <div v-click="2" class="w-3 bg-indigo-600 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks >= 2 ? '76.1%' : '0%' }"></div>
-        <div v-click="2" class="w-3 bg-indigo-400 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks >= 2 ? '73.0%' : '0%' }"></div>
-      </div>
-      <span class="text-[10px] font-bold mt-2 uppercase leading-none text-center">AUC<br>exp</span>
-    </div>
-    <div class="flex flex-col items-center flex-1">
-      <div class="flex items-end gap-1 h-100 w-full justify-center">
-        <div v-click="1" class="w-3 bg-blue-500 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks >= 1 ? '54.2%' : '0%' }"></div>
-        <div v-click="1" class="w-3 bg-blue-300 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks >= 1 ? '52.6%' : '0%' }"></div>
-        <div v-click="2" class="w-3 bg-indigo-600 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks >= 2 ? '67.8%' : '0%' }"></div>
-        <div v-click="2" class="w-3 bg-indigo-400 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks >= 2 ? '65.0%' : '0%' }"></div>
-      </div>
-      <span class="text-[10px] font-bold mt-2 uppercase leading-none text-center">AUC<br>dante</span>
-    </div>
-    <div class="flex flex-col items-center flex-1">
-      <div class="flex items-end gap-1 h-100 w-full justify-center">
-        <div v-click="1" class="w-3 bg-blue-500 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks >= 1 ? '51.1%' : '0%' }"></div>
-        <div v-click="1" class="w-3 bg-blue-300 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks >= 1 ? '51.7%' : '0%' }"></div>
-        <div v-click="2" class="w-3 bg-indigo-600 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks >= 2 ? '60.7%' : '0%' }"></div>
-        <div v-click="2" class="w-3 bg-indigo-400 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks >= 2 ? '60.5%' : '0%' }"></div>
-      </div>
-      <span class="text-[10px] font-bold mt-2 uppercase leading-none text-center">AUC BIN<br>dante</span>
-    </div>
+
+  <div class="absolute inset-0 flex flex-col transition-opacity duration-300 justify-center w-full items-center" :class="$clicks >= 2 ? 'opacity-100 z-20' : 'opacity-0 z-0 pointer-events-none'">
+    <img src="https://placehold.co/400x225?text=Grafico Gaze" class="rounded shadow" width="275"/>
   </div>
-  <p class="text-[10px] text-gray-400 italic text-center">
-    Confronto tra Single e Leave-One-Out (LOO) per Gaze e Face.
-  </p>
 </div>
 
 ---
