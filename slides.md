@@ -452,6 +452,7 @@ flowchart LR
 
 ---
 layout: two-cols
+style: 'grid-template-columns: 1fr 2fr;'
 ---
 
 # Personalizzazione Modello
@@ -461,18 +462,18 @@ layout: two-cols
 <div v-click class="hidden"></div>
 <div v-click class="hidden"></div>
 
-<div class="mt-4 space-y-4 text-lg items-center">
-  <div class="flex items-center gap-2" :class="$clicks === 0 ? 'font-bold text-blue-700 font-size-7' : 'text-slate-500'">
-    <span class="w-6 inline-block" :class="$clicks === 0 ? 'opacity-100' : 'opacity-0'">&gt;</span>
-    <span class="text-center">Single-Subject<br>vs<br>Leave One Out</span>
+<div class="mt-6 flex flex-col gap-6 justify-center items-start text-center">
+  <div class="ps-option" :class="$clicks === 0 ? 'ps-option-active' : 'ps-option-idle'">
+    <span class="ps-rail" :class="$clicks === 0 ? 'ps-rail-active' : 'ps-rail-idle'"></span>
+    <span class="ps-label min-w-35">Single-Subject<br>vs<br>Leave One Out</span>
   </div>
-  <div class="flex items-center gap-2" :class="$clicks === 1 ? 'font-bold text-blue-700 font-size-7' : 'text-slate-500'">
-    <span class="w-6 inline-block" :class="$clicks === 1 ? 'opacity-100' : 'opacity-0'">&gt;</span>
-    <span class="text-center">Single-encoder<br>vs<br>Multi-encoder</span>
+  <div class="ps-option" :class="$clicks === 1 ? 'ps-option-active' : 'ps-option-idle'">
+    <span class="ps-rail" :class="$clicks === 1 ? 'ps-rail-active' : 'ps-rail-idle'"></span>
+    <span class="ps-label min-w-35">Single-encoder<br>vs<br>Multi-encoder</span>
   </div>
-  <div class="flex items-center gap-2" :class="$clicks >= 2 ? 'font-bold text-blue-700 font-size-7' : 'text-slate-500'">
-    <span class="w-6 inline-block" :class="$clicks >= 2 ? 'opacity-100' : 'opacity-0'">&gt;</span>
-    <span class="text-center">Rumore Gaze</span>
+  <div class="ps-option" :class="$clicks >= 2 ? 'ps-option-active' : 'ps-option-idle'">
+    <span class="ps-rail" :class="$clicks >= 2 ? 'ps-rail-active' : 'ps-rail-idle'"></span>
+    <span class="ps-label min-w-35">Rumore Gaze</span>
   </div>
 </div>
 
@@ -480,7 +481,7 @@ layout: two-cols
 
 <div class="relative h-[430px] w-full max-w-4xl mx-auto mt-15">
 
-  <div class="absolute inset-0 flex flex-col transition-opacity duration-300" :class="$clicks === 0 ? 'opacity-100 z-20' : 'opacity-0 z-0 pointer-events-none'">
+  <div class="ps-panel absolute inset-0 flex flex-col" :class="$clicks === 0 ? 'ps-panel-active' : 'ps-panel-inactive'">
     <div class="flex justify-center gap-6 mb-4">
       <div class="flex items-center gap-2"><div class="w-3 h-3 bg-blue-500 rounded"></div><span class="text-xs">Gaze (Single)</span></div>
       <div class="flex items-center gap-2"><div class="w-3 h-3 bg-blue-300 rounded"></div><span class="text-xs">Gaze (LOO)</span></div>
@@ -490,46 +491,46 @@ layout: two-cols
     <div class="relative h-90 border-b border-gray-400 flex items-end justify-between px-4 pb-0">
       <div class="flex flex-col items-center flex-1">
         <div class="flex items-end gap-1 h-100 w-full justify-center">
-          <div class="w-3 bg-blue-500 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 0 ? '72.7%' : '0%' }"></div>
-          <div class="w-3 bg-blue-300 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 0 ? '70.0%' : '0%' }"></div>
-          <div class="w-3 bg-indigo-600 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 0 ? '77.8%' : '0%' }"></div>
-          <div class="w-3 bg-indigo-400 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 0 ? '76.2%' : '0%' }"></div>
+          <div class="ps-bar w-3 bg-blue-500 rounded-t" style="transition-delay: 40ms" :style="{ height: $clicks === 0 ? '72.7%' : '0%' }"></div>
+          <div class="ps-bar w-3 bg-blue-300 rounded-t" style="transition-delay: 110ms" :style="{ height: $clicks === 0 ? '70.0%' : '0%' }"></div>
+          <div class="ps-bar w-3 bg-indigo-600 rounded-t" style="transition-delay: 180ms" :style="{ height: $clicks === 0 ? '77.8%' : '0%' }"></div>
+          <div class="ps-bar w-3 bg-indigo-400 rounded-t" style="transition-delay: 250ms" :style="{ height: $clicks === 0 ? '76.2%' : '0%' }"></div>
         </div>
         <span class="text-[10px] font-bold mt-2 uppercase">AP</span>
       </div>
       <div class="flex flex-col items-center flex-1">
         <div class="flex items-end gap-1 h-100 w-full justify-center">
-          <div class="w-3 bg-blue-500 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 0 ? '63.0%' : '0%' }"></div>
-          <div class="w-3 bg-blue-300 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 0 ? '60.7%' : '0%' }"></div>
-          <div class="w-3 bg-indigo-600 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 0 ? '71.4%' : '0%' }"></div>
-          <div class="w-3 bg-indigo-400 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 0 ? '69.3%' : '0%' }"></div>
+          <div class="ps-bar w-3 bg-blue-500 rounded-t" style="transition-delay: 90ms" :style="{ height: $clicks === 0 ? '63.0%' : '0%' }"></div>
+          <div class="ps-bar w-3 bg-blue-300 rounded-t" style="transition-delay: 160ms" :style="{ height: $clicks === 0 ? '60.7%' : '0%' }"></div>
+          <div class="ps-bar w-3 bg-indigo-600 rounded-t" style="transition-delay: 230ms" :style="{ height: $clicks === 0 ? '71.4%' : '0%' }"></div>
+          <div class="ps-bar w-3 bg-indigo-400 rounded-t" style="transition-delay: 300ms" :style="{ height: $clicks === 0 ? '69.3%' : '0%' }"></div>
         </div>
         <span class="text-[10px] font-bold mt-2 uppercase">F1</span>
       </div>
       <div class="flex flex-col items-center flex-1">
         <div class="flex items-end gap-1 h-100 w-full justify-center">
-          <div class="w-3 bg-blue-500 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 0 ? '62.3%' : '0%' }"></div>
-          <div class="w-3 bg-blue-300 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 0 ? '60.3%' : '0%' }"></div>
-          <div class="w-3 bg-indigo-600 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 0 ? '76.1%' : '0%' }"></div>
-          <div class="w-3 bg-indigo-400 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 0 ? '73.0%' : '0%' }"></div>
+          <div class="ps-bar w-3 bg-blue-500 rounded-t" style="transition-delay: 140ms" :style="{ height: $clicks === 0 ? '62.3%' : '0%' }"></div>
+          <div class="ps-bar w-3 bg-blue-300 rounded-t" style="transition-delay: 210ms" :style="{ height: $clicks === 0 ? '60.3%' : '0%' }"></div>
+          <div class="ps-bar w-3 bg-indigo-600 rounded-t" style="transition-delay: 280ms" :style="{ height: $clicks === 0 ? '76.1%' : '0%' }"></div>
+          <div class="ps-bar w-3 bg-indigo-400 rounded-t" style="transition-delay: 350ms" :style="{ height: $clicks === 0 ? '73.0%' : '0%' }"></div>
         </div>
         <span class="text-[10px] font-bold mt-2 uppercase leading-none text-center">AUC<br>exp</span>
       </div>
       <div class="flex flex-col items-center flex-1">
         <div class="flex items-end gap-1 h-100 w-full justify-center">
-          <div class="w-3 bg-blue-500 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 0 ? '54.2%' : '0%' }"></div>
-          <div class="w-3 bg-blue-300 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 0 ? '52.6%' : '0%' }"></div>
-          <div class="w-3 bg-indigo-600 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 0 ? '67.8%' : '0%' }"></div>
-          <div class="w-3 bg-indigo-400 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 0 ? '65.0%' : '0%' }"></div>
+          <div class="ps-bar w-3 bg-blue-500 rounded-t" style="transition-delay: 190ms" :style="{ height: $clicks === 0 ? '54.2%' : '0%' }"></div>
+          <div class="ps-bar w-3 bg-blue-300 rounded-t" style="transition-delay: 260ms" :style="{ height: $clicks === 0 ? '52.6%' : '0%' }"></div>
+          <div class="ps-bar w-3 bg-indigo-600 rounded-t" style="transition-delay: 330ms" :style="{ height: $clicks === 0 ? '67.8%' : '0%' }"></div>
+          <div class="ps-bar w-3 bg-indigo-400 rounded-t" style="transition-delay: 400ms" :style="{ height: $clicks === 0 ? '65.0%' : '0%' }"></div>
         </div>
         <span class="text-[10px] font-bold mt-2 uppercase leading-none text-center">AUC<br>dante</span>
       </div>
       <div class="flex flex-col items-center flex-1">
         <div class="flex items-end gap-1 h-100 w-full justify-center">
-          <div class="w-3 bg-blue-500 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 0 ? '51.1%' : '0%' }"></div>
-          <div class="w-3 bg-blue-300 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 0 ? '51.7%' : '0%' }"></div>
-          <div class="w-3 bg-indigo-600 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 0 ? '60.7%' : '0%' }"></div>
-          <div class="w-3 bg-indigo-400 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 0 ? '60.5%' : '0%' }"></div>
+          <div class="ps-bar w-3 bg-blue-500 rounded-t" style="transition-delay: 240ms" :style="{ height: $clicks === 0 ? '51.1%' : '0%' }"></div>
+          <div class="ps-bar w-3 bg-blue-300 rounded-t" style="transition-delay: 310ms" :style="{ height: $clicks === 0 ? '51.7%' : '0%' }"></div>
+          <div class="ps-bar w-3 bg-indigo-600 rounded-t" style="transition-delay: 380ms" :style="{ height: $clicks === 0 ? '60.7%' : '0%' }"></div>
+          <div class="ps-bar w-3 bg-indigo-400 rounded-t" style="transition-delay: 450ms" :style="{ height: $clicks === 0 ? '60.5%' : '0%' }"></div>
         </div>
         <span class="text-[10px] font-bold mt-2 uppercase leading-none text-center">AUC BIN<br>dante</span>
       </div>
@@ -539,7 +540,7 @@ layout: two-cols
     </p>
   </div>
 
-  <div class="absolute inset-0 flex flex-col transition-opacity duration-300" :class="$clicks === 1 ? 'opacity-100 z-20' : 'opacity-0 z-0 pointer-events-none'">
+  <div class="ps-panel absolute inset-0 flex flex-col" :class="$clicks === 1 ? 'ps-panel-active' : 'ps-panel-inactive'">
       <div class="flex justify-center gap-6 mb-4">
         <div class="flex items-center gap-2"><div class="w-3 h-3 bg-blue-500 rounded"></div><span class="text-xs">Gaze (Single-Enc)</span></div>
         <div class="flex items-center gap-2"><div class="w-3 h-3 bg-indigo-500 rounded"></div><span class="text-xs">Face (Single-Enc)</span></div>
@@ -548,41 +549,41 @@ layout: two-cols
       <div class="relative h-90 border-b border-gray-400 flex items-end justify-between px-4 pb-0">
         <div class="flex flex-col items-center flex-1">
           <div class="flex items-end gap-1.5 h-100 w-full justify-center">
-            <div class="w-4 bg-blue-500 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 1 ? '68.4%' : '0%' }"></div>
-            <div class="w-4 bg-indigo-500 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 1 ? '77.8%' : '0%' }"></div>
-            <div class="w-4 bg-emerald-500 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 1 ? '77.1%' : '0%' }"></div>
+            <div class="ps-bar w-4 bg-blue-500 rounded-t" style="transition-delay: 40ms" :style="{ height: $clicks === 1 ? '68.4%' : '0%' }"></div>
+            <div class="ps-bar w-4 bg-indigo-500 rounded-t" style="transition-delay: 120ms" :style="{ height: $clicks === 1 ? '77.8%' : '0%' }"></div>
+            <div class="ps-bar w-4 bg-emerald-500 rounded-t" style="transition-delay: 200ms" :style="{ height: $clicks === 1 ? '77.1%' : '0%' }"></div>
           </div>
           <span class="text-[10px] font-bold mt-2 uppercase">AP</span>
         </div>
         <div class="flex flex-col items-center flex-1">
           <div class="flex items-end gap-1.5 h-100 w-full justify-center">
-            <div class="w-4 bg-blue-500 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 1 ? '59.7%' : '0%' }"></div>
-            <div class="w-4 bg-indigo-500 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 1 ? '71.4%' : '0%' }"></div>
-            <div class="w-4 bg-emerald-500 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 1 ? '68.5%' : '0%' }"></div>
+            <div class="ps-bar w-4 bg-blue-500 rounded-t" style="transition-delay: 100ms" :style="{ height: $clicks === 1 ? '59.7%' : '0%' }"></div>
+            <div class="ps-bar w-4 bg-indigo-500 rounded-t" style="transition-delay: 180ms" :style="{ height: $clicks === 1 ? '71.4%' : '0%' }"></div>
+            <div class="ps-bar w-4 bg-emerald-500 rounded-t" style="transition-delay: 260ms" :style="{ height: $clicks === 1 ? '68.5%' : '0%' }"></div>
           </div>
           <span class="text-[10px] font-bold mt-2 uppercase">F1</span>
         </div>
         <div class="flex flex-col items-center flex-1">
           <div class="flex items-end gap-1.5 h-100 w-full justify-center">
-            <div class="w-4 bg-blue-500 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 1 ? '62.2%' : '0%' }"></div>
-            <div class="w-4 bg-indigo-500 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 1 ? '76.4%' : '0%' }"></div>
-            <div class="w-4 bg-emerald-500 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 1 ? '69.4%' : '0%' }"></div>
+            <div class="ps-bar w-4 bg-blue-500 rounded-t" style="transition-delay: 160ms" :style="{ height: $clicks === 1 ? '62.2%' : '0%' }"></div>
+            <div class="ps-bar w-4 bg-indigo-500 rounded-t" style="transition-delay: 240ms" :style="{ height: $clicks === 1 ? '76.4%' : '0%' }"></div>
+            <div class="ps-bar w-4 bg-emerald-500 rounded-t" style="transition-delay: 320ms" :style="{ height: $clicks === 1 ? '69.4%' : '0%' }"></div>
           </div>
           <span class="text-[10px] font-bold mt-2 uppercase leading-none text-center">AUC<br>exp</span>
         </div>
         <div class="flex flex-col items-center flex-1">
           <div class="flex items-end gap-1.5 h-100 w-full justify-center">
-            <div class="w-4 bg-blue-500 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 1 ? '55.4%' : '0%' }"></div>
-            <div class="w-4 bg-indigo-500 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 1 ? '69.9%' : '0%' }"></div>
-            <div class="w-4 bg-emerald-500 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 1 ? '58.1%' : '0%' }"></div>
+            <div class="ps-bar w-4 bg-blue-500 rounded-t" style="transition-delay: 220ms" :style="{ height: $clicks === 1 ? '55.4%' : '0%' }"></div>
+            <div class="ps-bar w-4 bg-indigo-500 rounded-t" style="transition-delay: 300ms" :style="{ height: $clicks === 1 ? '69.9%' : '0%' }"></div>
+            <div class="ps-bar w-4 bg-emerald-500 rounded-t" style="transition-delay: 380ms" :style="{ height: $clicks === 1 ? '58.1%' : '0%' }"></div>
           </div>
           <span class="text-[10px] font-bold mt-2 uppercase leading-none text-center">AUC<br>dante</span>
         </div>
         <div class="flex flex-col items-center flex-1">
           <div class="flex items-end gap-1.5 h-100 w-full justify-center">
-            <div class="w-4 bg-blue-500 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 1 ? '50.7%' : '0%' }"></div>
-            <div class="w-4 bg-indigo-500 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 1 ? '62.6%' : '0%' }"></div>
-            <div class="w-4 bg-emerald-500 rounded-t transition-all duration-1000 ease-out" :style="{ height: $clicks === 1 ? '52.7%' : '0%' }"></div>
+            <div class="ps-bar w-4 bg-blue-500 rounded-t" style="transition-delay: 280ms" :style="{ height: $clicks === 1 ? '50.7%' : '0%' }"></div>
+            <div class="ps-bar w-4 bg-indigo-500 rounded-t" style="transition-delay: 360ms" :style="{ height: $clicks === 1 ? '62.6%' : '0%' }"></div>
+            <div class="ps-bar w-4 bg-emerald-500 rounded-t" style="transition-delay: 440ms" :style="{ height: $clicks === 1 ? '52.7%' : '0%' }"></div>
           </div>
           <span class="text-[10px] font-bold mt-2 uppercase leading-none text-center">AUC BIN<br>dante</span>
         </div>
@@ -592,10 +593,107 @@ layout: two-cols
       </p>
     </div>
 
-  <div class="absolute inset-0 flex flex-col transition-opacity duration-300 justify-center w-full items-center" :class="$clicks >= 2 ? 'opacity-100 z-20' : 'opacity-0 z-0 pointer-events-none'">
-    <img src="https://placehold.co/400x225?text=Grafico Gaze" class="rounded shadow" width="275"/>
+  <div class="absolute inset-0 flex flex-col transform-gpu transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] justify-center w-full items-center" :class="$clicks >= 2 ? 'opacity-100 scale-100 z-20' : 'opacity-0 scale-50 z-0 pointer-events-none'">
+    <img src="https://placehold.co/400x225?text=Grafico Gaze" class="rounded shadow" width="600"/>
   </div>
 </div>
+
+<style>
+.ps-option {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  border-radius: 0.8rem;
+  border: 1px solid #cbd5e1;
+  width: fit-content;
+  max-width: 20rem;
+  padding: 0.45rem 0.62rem 0.45rem 0.42rem;
+  transition: transform 480ms cubic-bezier(0.22, 1, 0.36, 1), border-color 480ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 480ms cubic-bezier(0.22, 1, 0.36, 1), background-color 480ms cubic-bezier(0.22, 1, 0.36, 1), color 480ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.ps-option-idle {
+  color: #64748b;
+  background: rgba(248, 250, 252, 0.7);
+}
+
+.ps-option-active {
+  color: #1d4ed8;
+  border-color: #93c5fd;
+  background: linear-gradient(90deg, rgba(219, 234, 254, 0.95), rgba(239, 246, 255, 0.7));
+  box-shadow: 0 12px 24px -18px rgba(29, 78, 216, 0.85);
+  transform: translateX(4px) scale(1.1);
+}
+
+.ps-rail {
+  width: 4px;
+  height: 2.2rem;
+  border-radius: 999px;
+  transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1), opacity 420ms cubic-bezier(0.22, 1, 0.36, 1), background-color 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.ps-rail-idle {
+  opacity: 0.15;
+  background: #94a3b8;
+  transform: scaleY(0.5);
+}
+
+.ps-rail-active {
+  opacity: 1;
+  background: #2563eb;
+  transform: scaleY(1);
+}
+
+.ps-arrow {
+  width: 1rem;
+  font-weight: 800;
+  transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1), opacity 420ms cubic-bezier(0.22, 1, 0.36, 1), color 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.ps-arrow-idle {
+  opacity: 0.18;
+  color: #94a3b8;
+  transform: translateX(-3px);
+}
+
+.ps-arrow-active {
+  opacity: 1;
+  color: #1d4ed8;
+  transform: translateX(0);
+}
+
+.ps-label {
+  text-align: center;
+  line-height: 1.14;
+  font-size: 0.98rem;
+  font-weight: 600;
+}
+
+.ps-panel {
+  transition: opacity 760ms cubic-bezier(0.22, 1, 0.36, 1), transform 760ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.ps-panel-active {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+  z-index: 20;
+}
+
+.ps-panel-inactive {
+  opacity: 0;
+  transform: translateX(10px) scale(0.992);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.ps-bar {
+  transition-property: height, opacity, filter;
+  transition-duration: 940ms;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: height;
+}
+</style>
 
 ---
 
@@ -608,25 +706,200 @@ layout: two-cols
 - **Implicazione**: La biometria "esterna" (volto) è un segnale di allerta precoce rispetto alla risposta del sistema nervoso autonomo.
 
 ---
+layout: two-cols
+---
 
-# Conclusioni e Lavori Futuri
+# Conclusioni
 
 <br>
 
-**Conclusioni**
-
 - Lo stress sociale in VR è rilevabile in modo non invasivo da telemetria commodity
-- Il face tracking è il segnale più discriminativo (ROC-AUC 0.76); il gaze introduce rumore
-- La dimensione psicologica (DANTE) correla più di quella fisiologica con lo spazio latente
-- Lo stress è un fenomeno soggetto-dipendente: la personalizzazione è essenziale
+- Il face tracking è il segnale più discriminativo
+- La dimensione psicologica correla più di quella fisiologica
+- Lo stress è un fenomeno soggetto-dipendente
 
-**Lavori Futuri**
+::right::
 
-- Telemetria granulare
-- Separazione del parlato
-- Contestualizzazione semantica
-- Baseline adattiva
-- Validazione fisiologica
+<div class="h-full flex items-center justify-center">
+  <div class="future-orbit">
+    <div v-click class="hidden"></div>
+    <div class="future-system" :class="$clicks >= 1 ? 'future-system-visible' : 'future-system-hidden'">
+      <div class="future-node">Lavori<br>Futuri</div>
+      <div class="future-track">
+        <div class="future-ring"></div>
+        <div class="future-slot future-slot-top">
+          <div class="future-item-shell">
+            <div v-click class="future-item">Telemetria<br>granulare</div>
+          </div>
+        </div>
+        <div class="future-slot future-slot-right-top">
+          <div class="future-item-shell">
+            <div v-click class="future-item">Separazione<br>del<br>parlato</div>
+          </div>
+        </div>
+        <div class="future-slot future-slot-right-bottom">
+          <div class="future-item-shell">
+            <div v-click class="future-item">Contestualizzazione<br>semantica</div>
+          </div>
+        </div>
+        <div class="future-slot future-slot-bottom-left">
+          <div class="future-item-shell">
+            <div v-click class="future-item">Baseline<br>adattiva</div>
+          </div>
+        </div>
+        <div class="future-slot future-slot-left-top">
+          <div class="future-item-shell">
+            <div v-click class="future-item">Validazione<br>fisiologica</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.future-orbit {
+  position: relative;
+  width: 100%;
+  max-width: 430px;
+  height: 360px;
+  margin: 0 auto;
+}
+
+.future-track {
+  position: absolute;
+  inset: 0;
+  animation: orbit-spin 75s linear infinite;
+  transform-origin: 50% 50%;
+}
+
+.future-system {
+  position: absolute;
+  inset: 0;
+  transition: transform 520ms cubic-bezier(0.22, 1, 0.36, 1), opacity 520ms cubic-bezier(0.22, 1, 0.36, 1), filter 520ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.future-system-hidden {
+  opacity: 0;
+  transform: scale(0.88);
+  filter: blur(4px);
+}
+
+.future-system-visible {
+  opacity: 1;
+  transform: scale(1);
+  filter: blur(0);
+}
+
+.future-ring {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 260px;
+  height: 260px;
+  transform: translate(-50%, -50%);
+  border: 2px dashed #bfdbfe;
+  border-radius: 9999px;
+}
+
+.future-node {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 110px;
+  height: 110px;
+  border-radius: 9999px;
+  border: 2px solid #60a5fa;
+  background: radial-gradient(circle at 30% 30%, #eff6ff, #dbeafe);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #1d4ed8;
+  font-weight: 700;
+  box-shadow: 0 16px 28px -18px rgba(29, 78, 216, 0.8);
+}
+
+.future-slot {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+
+.future-item-shell {
+  display: inline-block;
+  animation: orbit-counter-spin 75s linear infinite;
+  transform-origin: 50% 50%;
+}
+
+.future-slot-top {
+  transform: translate(-50%, calc(-50% - 150px));
+}
+
+.future-slot-right-top {
+  transform: translate(calc(-50% + 143px), calc(-50% - 46px));
+}
+
+.future-slot-right-bottom {
+  transform: translate(calc(-50% + 88px), calc(-50% + 121px));
+}
+
+.future-slot-bottom-left {
+  transform: translate(calc(-50% - 88px), calc(-50% + 121px));
+}
+
+.future-slot-left-top {
+  transform: translate(calc(-50% - 143px), calc(-50% - 46px));
+}
+
+.future-item {
+  min-width: 150px;
+  max-width: 190px;
+  border: 1px solid #93c5fd;
+  border-radius: 0.8rem;
+  background: rgba(255, 255, 255, 0.95);
+  color: #1e3a8a;
+  font-size: 0.86rem;
+  font-weight: 600;
+  line-height: 1.2rem;
+  text-align: center;
+  padding: 0.45rem 0.65rem;
+  box-shadow: 0 12px 20px -18px rgba(30, 58, 138, 0.95);
+  transition: transform 520ms cubic-bezier(0.22, 1, 0.36, 1), opacity 520ms cubic-bezier(0.22, 1, 0.36, 1), filter 520ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.future-item.slidev-vclick-hidden {
+  opacity: 0;
+  transform: scale(0.68);
+  filter: blur(3px);
+}
+
+@keyframes orbit-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbit-counter-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .future-track,
+  .future-item-shell {
+    animation: none;
+  }
+}
+</style>
 
 ---
 layout: center
