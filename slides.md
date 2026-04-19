@@ -341,31 +341,31 @@ layout: two-cols
     <div class="px-2">
       <div class="flex items-center justify-between gap-2">
         <div class="w-24 flex justify-center z-10">
-          <div class="w-10 h-5 rounded-full c-bg-phase-1" />
+          <div class="w-10 h-5 rounded-full bg-purple-500" />
         </div>
         <div class="flex-1 h-0.5 c-bg-primary-200 relative mx-1 self-center">
           <div class="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 border-t-2 border-r-2 c-border-primary-200 rotate-45"></div>
         </div>
         <div class="w-24 flex justify-center z-10">
-          <div class="w-10 h-5 rounded-full c-bg-primary-400" />
+          <div class="w-10 h-5 rounded-full bg-lightblue-500" />
         </div>
         <div class="flex-1 h-0.5 c-bg-primary-200 relative mx-1 self-center">
           <div class="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 border-t-2 border-r-2 c-border-primary-200 rotate-45"></div>
         </div>
         <div class="w-24 flex justify-center z-10">
-          <div class="w-10 h-5 rounded-full c-bg-phase-3" />
+          <div class="w-10 h-5 rounded-full bg-green-500" />
         </div>
         <div class="flex-1 h-0.5 c-bg-primary-200 relative mx-1 self-center">
           <div class="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 border-t-2 border-r-2 c-border-primary-200 rotate-45"></div>
         </div>
         <div class="w-24 flex justify-center z-10">
-          <div class="w-10 h-5 rounded-full c-bg-phase-4" />
+          <div class="w-10 h-5 rounded-full bg-orange-500" />
         </div>
         <div class="flex-1 h-0.5 c-bg-primary-200 relative mx-1 self-center">
           <div class="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 border-t-2 border-r-2 c-border-primary-200 rotate-45"></div>
         </div>
         <div class="w-24 flex justify-center z-10">
-          <div class="w-10 h-5 rounded-full c-bg-phase-5" />
+          <div class="w-10 h-5 rounded-full bg-red-500" />
         </div>
       </div>
       <div class="mt-2 flex items-start justify-between gap-2">
