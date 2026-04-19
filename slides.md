@@ -555,13 +555,22 @@ layout: two-cols
 
 # Conclusioni e Lavori Futuri
 
-**Sintesi dei Risultati**
-- Lo stress in VR è una dimensione altamente soggettiva.
-- Identificazione di profili utente: **"Scanners"** (iper-focalizzati) vs **"Watchers"** (evitanti).
+<br>
 
-**Evoluzioni Future**
-- Analisi dei **micro-tremori** dei controller per aggiungere una dimensione motoria.
-- Affinamento della personalità dell'agente tramite feedback neurale in tempo reale.
+**Conclusioni**
+
+- Lo stress sociale in VR è rilevabile in modo non invasivo da telemetria commodity
+- Il face tracking è il segnale più discriminativo (ROC-AUC 0.76); il gaze introduce rumore
+- La dimensione psicologica (DANTE) correla più di quella fisiologica con lo spazio latente
+- Lo stress è un fenomeno soggetto-dipendente: la personalizzazione è essenziale
+
+**Lavori Futuri**
+
+- Telemetria granulare
+- Separazione del parlato
+- Contestualizzazione semantica
+- Baseline adattiva
+- Validazione fisiologica
 
 ---
 layout: center
