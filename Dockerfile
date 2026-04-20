@@ -8,6 +8,8 @@ WORKDIR /app
 # Copiamo i file dei pacchetti e installiamo
 COPY package*.json ./
 RUN npm install
+RUN npx playwright install-deps chromium
+RUN npx playwright install chromium
 
 # Copiamo il resto dei file
 COPY . .

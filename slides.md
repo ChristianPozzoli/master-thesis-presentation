@@ -15,7 +15,7 @@ title: ALESSIA - Affective Latent Evaluation of Social Stress
 ---
 
 # ALESSIA
-### Affective Latent Evaluation of Social Stress in Interview Agents
+### **A**ffective **L**atent **E**valuation of **S**ocial **S**tress in **I**nterview **A**gents
 
 **Candidato:** Christian Pozzoli  
 **Relatore:** Prof. Laura Anna Ripamonti  
@@ -445,39 +445,223 @@ flowchart LR
 <img src="./images/stress_plot_subject_eye_tracking.png" class="rounded shadow"/>
 
 ---
+layout: two-cols
+style: 'grid-template-columns: 1fr 2fr;'
+---
 
-# Risultati: Face vs Gaze
+<div class="h-full flex flex-col">
+  <h1>Risultati<br>Face e Gaze</h1>
 
-**Analisi delle Modalità**
+  <p><strong>Analisi delle Modalità</strong></p>
 
-- **Face Tracking**: Si è dimostrato l'indicatore più **robusto e coerente**. Le micro-espressioni catturate dal visore sono correlate direttamente all'insorgenza dello stress.
-- **Gaze Tracking**: Risultato meno affidabile come predittore unico, influenzato fortemente dal compito visivo (guardare l'intervistatore) più che dallo stato emotivo latente.
-- **Performance**: Il modello basato sul volto ha raggiunto un **ROC-AUC di 0.7614**.
+  <div v-click class="hidden"></div>
+  <div v-click class="hidden"></div>
+  <div v-click class="hidden"></div>
 
+  <div class="flex-1 flex flex-col gap-6 justify-center items-start text-center">
+    <div class="ps-option" :class="$clicks === 0 ? 'ps-option-active' : 'ps-option-idle'">
+      <span class="ps-rail" :class="$clicks === 0 ? 'ps-rail-active' : 'ps-rail-idle'"></span>
+      <span class="ps-label min-w-35">Performance<br>Psicometriche</span>
+    </div>
+    <div class="ps-option" :class="$clicks === 1 ? 'ps-option-active' : 'ps-option-idle'">
+      <span class="ps-rail" :class="$clicks === 1 ? 'ps-rail-active' : 'ps-rail-idle'"></span>
+      <span class="ps-label min-w-35">Performance<br>Fisiometriche</span>
+    </div>
+    <div class="ps-option" :class="$clicks === 2 ? 'ps-option-active' : 'ps-option-idle'">
+      <span class="ps-rail" :class="$clicks === 2 ? 'ps-rail-active' : 'ps-rail-idle'"></span>
+      <span class="ps-label min-w-35">Spearman</span>
+    </div>
+    <div class="ps-option" :class="$clicks >= 3 ? 'ps-option-active' : 'ps-option-idle'">
+      <span class="ps-rail" :class="$clicks >= 3 ? 'ps-rail-active' : 'ps-rail-idle'"></span>
+      <span class="ps-label min-w-35">Cross-correlation</span>
+    </div>
+  </div>
+</div>
+
+::right::
+
+<div class="relative h-[430px] w-full max-w-4xl mx-auto mt-8">
+<!--
+    PERFORMANCE PSICOMETRICHE
+-->
+  <div class="ps-panel absolute inset-0 flex flex-col" :class="$clicks === 0 ? 'ps-panel-active' : 'ps-panel-inactive'">
+    <div class="flex justify-center gap-10 mb-4">
+      <div class="flex items-center gap-2">
+        <div class="w-3 h-3 c-bg-primary-500 rounded"></div>
+        <span class="text-xs">Gaze</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <div class="w-3 h-3 c-bg-primary-700 rounded"></div>
+        <span class="text-xs">Face</span>
+      </div>
+    </div>
+    <div class="relative h-95 border-b c-border-neutral-400 flex items-end justify-between px-10 pb-0">
+      <div class="flex flex-col items-center flex-1">
+        <div class="flex items-end gap-3 h-100 w-full justify-center">
+          <div class="ps-bar w-4 c-bg-primary-500 rounded-t" style="transition-delay: 50ms" :style="{ height: $clicks === 0 ? '72.8%' : '0%' }"></div>
+          <div class="ps-bar w-4 c-bg-primary-700 rounded-t" style="transition-delay: 150ms" :style="{ height: $clicks === 0 ? '77.9%' : '0%' }"></div>
+        </div>
+        <span class="text-[10px] font-bold mt-2 uppercase">AP</span>
+      </div>
+      <div class="flex flex-col items-center flex-1">
+        <div class="flex items-end gap-3 h-100 w-full justify-center">
+          <div class="ps-bar w-4 c-bg-primary-500 rounded-t" style="transition-delay: 100ms" :style="{ height: $clicks === 0 ? '63.1%' : '0%' }"></div>
+          <div class="ps-bar w-4 c-bg-primary-700 rounded-t" style="transition-delay: 200ms" :style="{ height: $clicks === 0 ? '71.5%' : '0%' }"></div>
+        </div>
+        <span class="text-[10px] font-bold mt-2 uppercase">F1</span>
+      </div>
+      <div class="flex flex-col items-center flex-1">
+        <div class="flex items-end gap-3 h-100 w-full justify-center">
+          <div class="ps-bar w-4 c-bg-primary-500 rounded-t" style="transition-delay: 150ms" :style="{ height: $clicks === 0 ? '62.4%' : '0%' }"></div>
+          <div class="ps-bar w-4 c-bg-primary-700 rounded-t" style="transition-delay: 250ms" :style="{ height: $clicks === 0 ? '76.1%' : '0%' }"></div>
+        </div>
+        <span class="text-[10px] font-bold mt-2 uppercase leading-none text-center">AUC<br>exp</span>
+      </div>
+      <div class="flex flex-col items-center flex-1">
+        <div class="flex items-end gap-3 h-100 w-full justify-center">
+          <div class="ps-bar w-4 c-bg-primary-500 rounded-t" style="transition-delay: 200ms" :style="{ height: $clicks === 0 ? '54.2%' : '0%' }"></div>
+          <div class="ps-bar w-4 c-bg-primary-700 rounded-t" style="transition-delay: 300ms" :style="{ height: $clicks === 0 ? '67.8%' : '0%' }"></div>
+        </div>
+        <span class="text-[10px] font-bold mt-2 uppercase leading-none text-center">AUC<br>dante</span>
+      </div>
+      <div class="flex flex-col items-center flex-1">
+        <div class="flex items-end gap-3 h-100 w-full justify-center">
+          <div class="ps-bar w-4 c-bg-primary-500 rounded-t" style="transition-delay: 250ms" :style="{ height: $clicks === 0 ? '51.2%' : '0%' }"></div>
+          <div class="ps-bar w-4 c-bg-primary-700 rounded-t" style="transition-delay: 350ms" :style="{ height: $clicks === 0 ? '60.8%' : '0%' }"></div>
+        </div>
+        <span class="text-[10px] font-bold mt-2 uppercase leading-none text-center">AUC BIN<br>dante</span>
+      </div>
+    </div>
+    <p class="text-[10px] c-text-neutral-400 italic text-center mt-4">
+      Performance psicometriche: confronto tra modalità Gaze e Face.
+    </p>
+  </div>
+
+<!--
+    PERFORMANCE FISIOMETRICHE
+-->
+
+  <div class="ps-panel absolute inset-0 flex flex-col" :class="$clicks === 1 ? 'ps-panel-active' : 'ps-panel-inactive'">
+    <div class="flex justify-center gap-6 mb-4">
+      <div class="flex items-center gap-2"><div class="w-3 h-3 c-bg-primary-500 rounded-sm"></div><span class="text-[10px]">HRV Gaze</span></div>
+      <div class="flex items-center gap-2"><div class="w-3 h-3 c-bg-primary-700 rounded-sm"></div><span class="text-[10px]">HRV Face</span></div>
+      <div class="flex items-center gap-2 border-l pl-4 border-gray-300"></div>
+      <div class="flex items-center gap-2"><div class="w-3 h-3 bg-teal-500 rounded-sm"></div><span class="text-[10px]">SCR Gaze</span></div>
+      <div class="flex items-center gap-2"><div class="w-3 h-3 bg-teal-700 rounded-sm"></div><span class="text-[10px]">SCR Face</span></div>
+    </div>
+    <div class="relative h-95 border-b c-border-neutral-400 flex items-end justify-between px-4 pb-0">
+      <div class="flex flex-col items-center flex-1">
+        <div class="flex items-end gap-1 h-100 w-full justify-center">
+          <div class="ps-bar w-2 c-bg-primary-500 rounded-t" :style="{ height: $clicks === 1 ? '71.5%' : '0%' }"></div>
+          <div class="ps-bar w-2 c-bg-primary-700 rounded-t" :style="{ height: $clicks === 1 ? '74.5%' : '0%' }"></div>
+          <div class="ps-bar w-2 bg-teal-500 rounded-t ml-1" :style="{ height: $clicks === 1 ? '52.1%' : '0%' }"></div>
+          <div class="ps-bar w-2 bg-teal-700 rounded-t" :style="{ height: $clicks === 1 ? '54.0%' : '0%' }"></div>
+        </div>
+        <span class="text-[9px] font-bold mt-2">AP</span>
+      </div>
+      <div class="flex flex-col items-center flex-1">
+        <div class="flex items-end gap-1 h-100 w-full justify-center">
+          <div class="ps-bar w-2 c-bg-primary-500 rounded-t" :style="{ height: $clicks === 1 ? '63.7%' : '0%' }"></div>
+          <div class="ps-bar w-2 c-bg-primary-700 rounded-t" :style="{ height: $clicks === 1 ? '69.1%' : '0%' }"></div>
+          <div class="ps-bar w-2 bg-teal-500 rounded-t ml-1" :style="{ height: $clicks === 1 ? '50.0%' : '0%' }"></div>
+          <div class="ps-bar w-2 bg-teal-700 rounded-t" :style="{ height: $clicks === 1 ? '54.9%' : '0%' }"></div>
+        </div>
+        <span class="text-[9px] font-bold mt-2">F1</span>
+      </div>
+      <div class="flex flex-col items-center flex-1">
+        <div class="flex items-end gap-1 h-100 w-full justify-center">
+          <div class="ps-bar w-2 c-bg-primary-500 rounded-t" :style="{ height: $clicks === 1 ? '62.3%' : '0%' }"></div>
+          <div class="ps-bar w-2 c-bg-primary-700 rounded-t" :style="{ height: $clicks === 1 ? '76.1%' : '0%' }"></div>
+          <div class="ps-bar w-2 bg-teal-500 rounded-t ml-1" :style="{ height: $clicks === 1 ? '54.7%' : '0%' }"></div>
+          <div class="ps-bar w-2 bg-teal-700 rounded-t" :style="{ height: $clicks === 1 ? '71.3%' : '0%' }"></div>
+        </div>
+        <span class="text-[9px] font-bold mt-2 leading-tight text-center">AUC<br>EXP</span>
+      </div>
+      <div class="flex flex-col items-center flex-1">
+        <div class="flex items-end gap-1 h-100 w-full justify-center">
+          <div class="ps-bar w-2 c-bg-primary-500 rounded-t" :style="{ height: $clicks === 1 ? '44.9%' : '0%' }"></div>
+          <div class="ps-bar w-2 c-bg-primary-700 rounded-t" :style="{ height: $clicks === 1 ? '47.6%' : '0%' }"></div>
+          <div class="ps-bar w-2 bg-teal-500 rounded-t ml-1" :style="{ height: $clicks === 1 ? '51.7%' : '0%' }"></div>
+          <div class="ps-bar w-2 bg-teal-700 rounded-t" :style="{ height: $clicks === 1 ? '54.6%' : '0%' }"></div>
+        </div>
+        <span class="text-[9px] font-bold mt-2 leading-tight text-center">AUC<br>PHYSIO</span>
+      </div>
+      <div class="flex flex-col items-center flex-1">
+        <div class="flex items-end gap-1 h-100 w-full justify-center">
+          <div class="ps-bar w-2 c-bg-primary-500 rounded-t" :style="{ height: $clicks === 1 ? '48.8%' : '0%' }"></div>
+          <div class="ps-bar w-2 c-bg-primary-700 rounded-t" :style="{ height: $clicks === 1 ? '47.5%' : '0%' }"></div>
+          <div class="ps-bar w-2 bg-teal-500 rounded-t ml-1" :style="{ height: $clicks === 1 ? '50.8%' : '0%' }"></div>
+          <div class="ps-bar w-2 bg-teal-700 rounded-t" :style="{ height: $clicks === 1 ? '52.9%' : '0%' }"></div>
+        </div>
+        <span class="text-[9px] font-bold mt-2 leading-tight text-center">AUC BIN<br>PHYSIO</span>
+      </div>
+    </div>
+    <p class="text-[9px] c-text-neutral-400 italic text-center mt-4 tracking-wider">
+      Confronto segnali HRV vs SCR (Single Subject) su modalità Gaze e Face.
+    </p>
+  </div>
+
+<!--
+    SPEARMAN
+-->
+
+  <div class="absolute inset-0 flex flex-col items-center justify-center p-8 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] transform-gpu" 
+      :class="$clicks === 2 ? 'opacity-100 scale-100 z-20' : 'opacity-0 scale-50 z-0 pointer-events-none'">
+    <div class="max-w-4xl mb-6">
+      <img src="./images/violin_Spearman_by_dtype_regime.svg" class="rounded shadow-lg" width="400"/>
+    </div>
+    <div class="flex items-center gap-6 max-w-4xl">
+      <div class="flex-1">
+        <img src="./images/violin_Spearman_HRV_by_dtype_regime.svg" class="rounded shadow-lg" width="200"/>
+      </div>
+      <div class="flex-1">
+        <img src="./images/violin_Spearman_SCR_by_dtype_regime.svg" class="rounded shadow-lg" width="200"/>
+      </div>
+    </div>
+  </div>
+
+<!--
+    CROSS-CORRELATION
+-->
+
+  <div class="absolute inset-0 flex items-center justify-center p-8 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] transform-gpu" 
+      :class="$clicks >= 3 ? 'opacity-100 scale-100 z-20' : 'opacity-0 scale-50 z-0 pointer-events-none'">
+    <div class="grid grid-cols-2 gap-6 w-full max-w-5xl items-center justify-items-center">
+      <div class="bg-white rounded-lg shadow-md">
+        <img src="https://placehold.co/400x400?text=X-Corr-face-HRV" class="w-full h-auto rounded" />
+      </div>
+      <div class="bg-white rounded-lg shadow-md">
+        <img src="https://placehold.co/400x400?text=X-Corr-face-SCR" class="w-full h-auto rounded" />
+      </div>
+      <div class="bg-white rounded-lg shadow-md">
+        <img src="https://placehold.co/400x400?text=X-Corr-eye-SCR" class="w-full h-auto rounded" />
+      </div>
+      <div class="bg-white rounded-lg shadow-md">
+        <img src="https://placehold.co/400x400?text=X-Corr-eye-SCR" class="w-full h-auto rounded" />
+      </div>
+    </div>
+  </div>
+
+</div>
 ---
 layout: two-cols
 style: 'grid-template-columns: 1fr 2fr;'
 ---
 
-# Personalizzazione Modello
+<div class="h-full flex flex-col">
+  <h1>Personalizzazione Modello</h1>
 
-<br>
+  <div v-click class="hidden"></div>
 
-<div v-click class="hidden"></div>
-<div v-click class="hidden"></div>
-
-<div class="mt-6 flex flex-col gap-6 justify-center items-start text-center">
-  <div class="ps-option" :class="$clicks === 0 ? 'ps-option-active' : 'ps-option-idle'">
-    <span class="ps-rail" :class="$clicks === 0 ? 'ps-rail-active' : 'ps-rail-idle'"></span>
-    <span class="ps-label min-w-35">Single-Subject<br>vs<br>Leave One Out</span>
-  </div>
-  <div class="ps-option" :class="$clicks === 1 ? 'ps-option-active' : 'ps-option-idle'">
-    <span class="ps-rail" :class="$clicks === 1 ? 'ps-rail-active' : 'ps-rail-idle'"></span>
-    <span class="ps-label min-w-35">Single-encoder<br>vs<br>Multi-encoder</span>
-  </div>
-  <div class="ps-option" :class="$clicks >= 2 ? 'ps-option-active' : 'ps-option-idle'">
-    <span class="ps-rail" :class="$clicks >= 2 ? 'ps-rail-active' : 'ps-rail-idle'"></span>
-    <span class="ps-label min-w-35">Rumore Gaze</span>
+  <div class="flex-1 flex flex-col gap-6 justify-center items-start text-center">
+    <div class="ps-option" :class="$clicks === 0 ? 'ps-option-active' : 'ps-option-idle'">
+      <span class="ps-rail" :class="$clicks === 0 ? 'ps-rail-active' : 'ps-rail-idle'"></span>
+      <span class="ps-label min-w-35">Single-Subject<br>vs<br>Leave One Out</span>
+    </div>
+    <div class="ps-option" :class="$clicks === 1 ? 'ps-option-active' : 'ps-option-idle'">
+      <span class="ps-rail" :class="$clicks === 1 ? 'ps-rail-active' : 'ps-rail-idle'"></span>
+      <span class="ps-label min-w-35">Single-encoder<br>vs<br>Multi-encoder</span>
+    </div>
   </div>
 </div>
 
@@ -596,118 +780,57 @@ style: 'grid-template-columns: 1fr 2fr;'
         Confronto tra varianti Unimodali e architettura Multimodale (Late-Fusion).
       </p>
     </div>
+</div>
 
-  <div class="absolute inset-0 flex flex-col transform-gpu transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] justify-center w-full items-center" :class="$clicks >= 2 ? 'opacity-100 scale-100 z-20' : 'opacity-0 scale-50 z-0 pointer-events-none'">
-    <img src="https://placehold.co/400x225?text=Grafico Gaze" class="rounded shadow" width="600"/>
+---
+layout: two-cols
+style: 'grid-template-columns: 0.8fr 2.2fr;'
+---
+
+<div class="h-full flex flex-col">
+  <h1>Dinamiche Temporali</h1>
+
+  <div v-click class="hidden"></div>
+  <div v-click class="hidden"></div>
+
+  <div class="flex-1 flex flex-col gap-6 justify-center items-start text-center">
+    <div class="ps-option" :class="$clicks === 0 ? 'ps-option-active' : 'ps-option-idle'">
+      <span class="ps-rail" :class="$clicks === 0 ? 'ps-rail-active' : 'ps-rail-idle'"></span>
+      <span class="ps-label min-w-25">Face</span>
+    </div>
+    <div class="ps-option" :class="$clicks === 1 ? 'ps-option-active' : 'ps-option-idle'">
+      <span class="ps-rail" :class="$clicks === 1 ? 'ps-rail-active' : 'ps-rail-idle'"></span>
+      <span class="ps-label min-w-25">Gaze</span>
+    </div>
+    <div class="ps-option" :class="$clicks >= 2 ? 'ps-option-active' : 'ps-option-idle'">
+      <span class="ps-rail" :class="$clicks >= 2 ? 'ps-rail-active' : 'ps-rail-idle'"></span>
+      <span class="ps-label min-w-25">Fixations</span>
+    </div>
   </div>
 </div>
 
-<style>
-.ps-option {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.65rem;
-  border-radius: 0.8rem;
-  border: 1px solid var(--c-neutral-300);
-  width: fit-content;
-  max-width: 20rem;
-  padding: 0.45rem 0.62rem 0.45rem 0.42rem;
-  transition: transform 480ms cubic-bezier(0.22, 1, 0.36, 1), border-color 480ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 480ms cubic-bezier(0.22, 1, 0.36, 1), background-color 480ms cubic-bezier(0.22, 1, 0.36, 1), color 480ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.ps-option-idle {
-  color: var(--c-neutral-700);
-  background: rgba(var(--c-neutral-bg-soft-rgb), 0.7);
-}
-
-.ps-option-active {
-  color: var(--c-primary-700);
-  border-color: var(--c-primary-300);
-  background: linear-gradient(90deg, rgba(var(--c-primary-100-rgb), 0.95), rgba(var(--c-primary-50-rgb), 0.7));
-  box-shadow: 0 12px 24px -18px rgba(var(--c-shadow-accent-rgb), 0.85);
-  transform: translateX(4px) scale(1.1);
-}
-
-.ps-rail {
-  width: 4px;
-  height: 2.2rem;
-  border-radius: 999px;
-  transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1), opacity 420ms cubic-bezier(0.22, 1, 0.36, 1), background-color 420ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.ps-rail-idle {
-  opacity: 0.15;
-  background: var(--c-neutral-400);
-  transform: scaleY(0.5);
-}
-
-.ps-rail-active {
-  opacity: 1;
-  background: var(--c-primary-600);
-  transform: scaleY(1);
-}
-
-.ps-arrow {
-  width: 1rem;
-  font-weight: 800;
-  transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1), opacity 420ms cubic-bezier(0.22, 1, 0.36, 1), color 420ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.ps-arrow-idle {
-  opacity: 0.18;
-  color: var(--c-neutral-400);
-  transform: translateX(-3px);
-}
-
-.ps-arrow-active {
-  opacity: 1;
-  color: var(--c-primary-700);
-  transform: translateX(0);
-}
-
-.ps-label {
-  text-align: center;
-  line-height: 1.14;
-  font-size: 0.98rem;
-  font-weight: 600;
-}
-
-.ps-panel {
-  transition: opacity 760ms cubic-bezier(0.22, 1, 0.36, 1), transform 760ms cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: opacity, transform;
-}
-
-.ps-panel-active {
-  opacity: 1;
-  transform: translateX(0) scale(1);
-  z-index: 20;
-}
-
-.ps-panel-inactive {
-  opacity: 0;
-  transform: translateX(10px) scale(0.992);
-  z-index: 0;
-  pointer-events: none;
-}
-
-.ps-bar {
-  transition-property: height, opacity, filter;
-  transition-duration: 940ms;
-  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: height;
-}
-</style>
-
----
-
-# Dinamiche Temporali
-
-**Il "Lead Comportamentale"**
-
+<!--
 - **Anticipazione**: Il modello rileva anomalie facciali e oculari **1.5 - 2 secondi prima** della risposta fisiologica.
 - **Validazione**: L'errore di ricostruzione precede i picchi di EDA (sudorazione).
 - **Implicazione**: La biometria "esterna" (volto) è un segnale di allerta precoce rispetto alla risposta del sistema nervoso autonomo.
+-->
+
+::right::
+
+<div class="relative h-full w-full max-w-4xl mx-auto">
+  <div class="absolute inset-0 flex items-center justify-center transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] transform-gpu" 
+      :class="$clicks == 0 ? 'opacity-100 scale-100 z-20' : 'opacity-0 scale-25 z-0 pointer-events-none'">
+        <img src="./images/stress_indices_comparison_face.png" class="w-full h-auto rounded shadow-xl" />    
+  </div>
+  <div class="absolute inset-0 flex items-center justify-center transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] transform-gpu" 
+      :class="$clicks == 1 ? 'opacity-100 scale-100 z-20' : 'opacity-0 scale-25 z-0 pointer-events-none'">
+        <img src="./images/stress_indices_comparison_eye.png" class="w-full h-auto rounded shadow-xl" />
+  </div>
+  <div class="absolute inset-0 flex items-center justify-center transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] transform-gpu" 
+      :class="$clicks >= 2 ? 'opacity-100 scale-100 z-20' : 'opacity-0 scale-25 z-0 pointer-events-none'">
+        <img src="./images/gaze_stress_global_summary_dante.png" class="w-full h-auto rounded shadow-xl" />
+  </div>
+</div>
 
 ---
 layout: two-cols
@@ -912,6 +1035,8 @@ class: text-center
 
 # Grazie per l'attenzione
 
-**Christian Pozzoli** christian.pozzoli@studenti.unimi.it
+**Christian Pozzoli**
+
+christian.pozzoli@studenti.unimi.it
 
 

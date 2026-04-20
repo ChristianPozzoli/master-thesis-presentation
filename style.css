@@ -129,3 +129,101 @@
 .c-ring-primary-100 {
   --tw-ring-color: var(--c-primary-100) !important;
 }
+
+
+
+.ps-option {
+  position: relative;
+  display: inline-flex;
+  vertical-align: middle;
+  align-items: center;
+  gap: 0.65rem;
+  border-radius: 0.8rem;
+  border: 1px solid var(--c-neutral-300);
+  width: fit-content;
+  max-width: 20rem;
+  padding: 0.45rem 0.62rem 0.45rem 0.42rem;
+  transition: transform 480ms cubic-bezier(0.22, 1, 0.36, 1), border-color 480ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 480ms cubic-bezier(0.22, 1, 0.36, 1), background-color 480ms cubic-bezier(0.22, 1, 0.36, 1), color 480ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.ps-option-idle {
+  color: var(--c-neutral-700);
+  background: rgba(var(--c-neutral-bg-soft-rgb), 0.7);
+}
+
+.ps-option-active {
+  color: var(--c-primary-700);
+  border-color: var(--c-primary-300);
+  background: linear-gradient(90deg, rgba(var(--c-primary-100-rgb), 0.95), rgba(var(--c-primary-50-rgb), 0.7));
+  box-shadow: 0 12px 24px -18px rgba(var(--c-shadow-accent-rgb), 0.85);
+  transform: translateX(4px) scale(1.1);
+}
+
+.ps-rail {
+  width: 4px;
+  height: 2.2rem;
+  border-radius: 999px;
+  transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1), opacity 420ms cubic-bezier(0.22, 1, 0.36, 1), background-color 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.ps-rail-idle {
+  opacity: 0.15;
+  background: var(--c-neutral-400);
+  transform: scaleY(0.5);
+}
+
+.ps-rail-active {
+  opacity: 1;
+  background: var(--c-primary-600);
+  transform: scaleY(1);
+}
+
+.ps-arrow {
+  width: 1rem;
+  font-weight: 800;
+  transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1), opacity 420ms cubic-bezier(0.22, 1, 0.36, 1), color 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.ps-arrow-idle {
+  opacity: 0.18;
+  color: var(--c-neutral-400);
+  transform: translateX(-3px);
+}
+
+.ps-arrow-active {
+  opacity: 1;
+  color: var(--c-primary-700);
+  transform: translateX(0);
+}
+
+.ps-label {
+  text-align: center;
+  line-height: 1.14;
+  font-size: 0.98rem;
+  font-weight: 600;
+}
+
+.ps-panel {
+  transition: opacity 760ms cubic-bezier(0.22, 1, 0.36, 1), transform 760ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.ps-panel-active {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+  z-index: 20;
+}
+
+.ps-panel-inactive {
+  opacity: 0;
+  transform: translateX(10px) scale(0.992);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.ps-bar {
+  transition-property: height, opacity, filter;
+  transition-duration: 940ms;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: height;
+}
