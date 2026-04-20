@@ -1,5 +1,5 @@
 ---
-theme: seriph
+theme: light-icons
 background: https://source.unsplash.com/featured/?technology,virtual-reality
 class: text-center c-text-primary-900
 highlighter: shiki
@@ -16,7 +16,7 @@ title: ALESSIA - Affective Latent Evaluation of Social Stress
 ---
 
 # ALESSIA
-### **A**ffective **L**atent **E**valuation of **S**ocial **S**tress in **I**nterview **A**gents
+## **A**ffective **L**atent **E**valuation of **S**ocial **S**tress in **I**nterview **A**gents
 
 **Candidato:** Christian Pozzoli  
 **Relatore:** Prof. Laura Anna Ripamonti  

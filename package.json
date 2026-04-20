@@ -9,6 +9,8 @@
   "dependencies": {
     "@slidev/cli": "latest",
     "@slidev/theme-seriph": "latest",
-    "playwright-chromium": "latest"
+    "playwright-chromium": "latest",
+    "slidev-theme-academic": "^2.1.0",
+    "slidev-theme-light-icons": "^1.0.2"
   }
 }
