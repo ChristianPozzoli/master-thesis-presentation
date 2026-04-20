@@ -47,9 +47,9 @@ layout: two-cols
 ::right::
 
 <div class="flex flex-col items-center gap-5">
-	<img src="https://placehold.co/400x225?text=Doubt LA Noire" class="rounded shadow" width="250"/>
+	<img src="./images/doubt-la-noire.png" class="rounded shadow" width="250"/>
 	<img src="https://placehold.co/400x225?text=Interazione VR" class="rounded shadow" width="250"/>
-	<img src="https://placehold.co/400x225?text=NVIDIA ACE" class="rounded shadow" width="250"/>
+	<img src="./images/nvidia-ace.jpg" class="rounded shadow" width="250"/>
 </div>
 
 ---
@@ -237,7 +237,7 @@ layout: two-cols
 
 <div class="grid grid-cols-2 gap-4">
   <div v-click class="hw-grid-card border c-border-neutral-300 rounded-xl p-5 flex flex-row items-center gap-6">
-    <img src="https://placehold.co/400x400?text=Unreal" width="150" class="rounded-lg shrink-0" />
+    <img src="./images/unreal-logo.png" width="150" class="rounded-lg shrink-0" />
     <div class="w-px h-20 c-bg-neutral-300 shrink-0" />
     <div class="flex flex-1 flex-col items-center justify-center text-center">
       <div class="font-bold text-lg mb-2">Unreal</div>
@@ -271,7 +271,7 @@ layout: two-cols
     </div>
   </div>
   <div v-click class="hw-grid-card border c-border-neutral-300 rounded-xl p-5 flex flex-row items-center gap-6">
-    <img src="https://placehold.co/400x400?text=DANTE" width="150" class="rounded-lg shrink-0" />
+    <img src="./images/dante-logo.png" width="150" class="rounded-lg shrink-0" />
     <div class="w-px h-16 c-bg-neutral-300 shrink-0" />
     <div class="flex flex-1 flex-col items-center justify-center text-center">
       <div class="font-bold text-lg mb-2">DANTE</div>
@@ -442,10 +442,10 @@ layout: two-cols
     </div>
   </div>
   
-  <div :class="$clicks >= 2 ? 'opacity-0 max-h-0 mt-0 mb-0 scale-90 pointer-events-none delay-0' : 'opacity-100 max-h-[180px] mt-8 mb-2 scale-100 delay-75'" class="flex items-center justify-between overflow-hidden transition-all duration-750 ease-[cubic-bezier(0.22,1,0.36,1)]">
-    <img src="https://placehold.co/400x225?text=JobHub" class="rounded shadow" width="275"/>
-    <img src="https://placehold.co/400x225?text=Colloquio" class="rounded shadow" width="275"/>
-    <img src="https://placehold.co/400x225?text=DANTE" class="rounded shadow" width="275"/>
+  <div :class="$clicks >= 2 ? 'opacity-0 max-h-0 mt-0 mb-0 scale-90 pointer-events-none delay-0' : 'opacity-100 max-h-[180px] mt-10 mb-0 scale-100 delay-75'" class="flex items-center justify-between overflow-hidden transition-all duration-750 ease-[cubic-bezier(0.22,1,0.36,1)]">
+    <img src="./images/jobhub.png" class="rounded shadow" width="280"/>
+    <img src="./images/colloquio.png" class="rounded shadow" width="280"/>
+    <img src="./images/dante-screen.png" class="rounded shadow" width="280"/>
   </div>
 </div>
 
@@ -547,47 +547,47 @@ style: 'grid-template-columns: 1fr 2fr;'
   <div class="ps-panel absolute inset-0 flex flex-col" :class="$clicks === 0 ? 'ps-panel-active' : 'ps-panel-inactive'">
     <div class="flex justify-center gap-10 mb-4">
       <div class="flex items-center gap-2">
-        <div class="w-3 h-3 c-bg-primary-500 rounded"></div>
+        <div class="w-3 h-3 bar-gaze rounded"></div>
         <span class="text-xs">Gaze</span>
       </div>
       <div class="flex items-center gap-2">
-        <div class="w-3 h-3 c-bg-primary-700 rounded"></div>
+        <div class="w-3 h-3 bar-face rounded"></div>
         <span class="text-xs">Face</span>
       </div>
     </div>
     <div class="relative h-95 border-b c-border-neutral-400 flex items-end justify-between px-10 pb-0">
       <div class="flex flex-col items-center flex-1">
         <div class="flex items-end gap-3 h-100 w-full justify-center">
-          <div class="ps-bar w-4 c-bg-primary-500 rounded-t" style="transition-delay: 50ms" :style="{ height: $clicks === 0 ? '72.8%' : '0%' }"></div>
-          <div class="ps-bar w-4 c-bg-primary-700 rounded-t" style="transition-delay: 150ms" :style="{ height: $clicks === 0 ? '77.9%' : '0%' }"></div>
+          <div class="ps-bar w-4 bar-gaze rounded-t" style="transition-delay: 50ms" :style="{ height: $clicks === 0 ? '72.8%' : '0%' }"></div>
+          <div class="ps-bar w-4 bar-face rounded-t" style="transition-delay: 150ms" :style="{ height: $clicks === 0 ? '77.9%' : '0%' }"></div>
         </div>
         <span class="text-[10px] font-bold mt-2 uppercase">AP</span>
       </div>
       <div class="flex flex-col items-center flex-1">
         <div class="flex items-end gap-3 h-100 w-full justify-center">
-          <div class="ps-bar w-4 c-bg-primary-500 rounded-t" style="transition-delay: 100ms" :style="{ height: $clicks === 0 ? '63.1%' : '0%' }"></div>
-          <div class="ps-bar w-4 c-bg-primary-700 rounded-t" style="transition-delay: 200ms" :style="{ height: $clicks === 0 ? '71.5%' : '0%' }"></div>
+          <div class="ps-bar w-4 bar-gaze rounded-t" style="transition-delay: 100ms" :style="{ height: $clicks === 0 ? '63.1%' : '0%' }"></div>
+          <div class="ps-bar w-4 bar-face rounded-t" style="transition-delay: 200ms" :style="{ height: $clicks === 0 ? '71.5%' : '0%' }"></div>
         </div>
         <span class="text-[10px] font-bold mt-2 uppercase">F1</span>
       </div>
       <div class="flex flex-col items-center flex-1">
         <div class="flex items-end gap-3 h-100 w-full justify-center">
-          <div class="ps-bar w-4 c-bg-primary-500 rounded-t" style="transition-delay: 150ms" :style="{ height: $clicks === 0 ? '62.4%' : '0%' }"></div>
-          <div class="ps-bar w-4 c-bg-primary-700 rounded-t" style="transition-delay: 250ms" :style="{ height: $clicks === 0 ? '76.1%' : '0%' }"></div>
+          <div class="ps-bar w-4 bar-gaze rounded-t" style="transition-delay: 150ms" :style="{ height: $clicks === 0 ? '62.4%' : '0%' }"></div>
+          <div class="ps-bar w-4 bar-face rounded-t" style="transition-delay: 250ms" :style="{ height: $clicks === 0 ? '76.1%' : '0%' }"></div>
         </div>
         <span class="text-[10px] font-bold mt-2 uppercase leading-none text-center">AUC<br>exp</span>
       </div>
       <div class="flex flex-col items-center flex-1">
         <div class="flex items-end gap-3 h-100 w-full justify-center">
-          <div class="ps-bar w-4 c-bg-primary-500 rounded-t" style="transition-delay: 200ms" :style="{ height: $clicks === 0 ? '54.2%' : '0%' }"></div>
-          <div class="ps-bar w-4 c-bg-primary-700 rounded-t" style="transition-delay: 300ms" :style="{ height: $clicks === 0 ? '67.8%' : '0%' }"></div>
+          <div class="ps-bar w-4 bar-gaze rounded-t" style="transition-delay: 200ms" :style="{ height: $clicks === 0 ? '54.2%' : '0%' }"></div>
+          <div class="ps-bar w-4 bar-face rounded-t" style="transition-delay: 300ms" :style="{ height: $clicks === 0 ? '67.8%' : '0%' }"></div>
         </div>
         <span class="text-[10px] font-bold mt-2 uppercase leading-none text-center">AUC<br>dante</span>
       </div>
       <div class="flex flex-col items-center flex-1">
         <div class="flex items-end gap-3 h-100 w-full justify-center">
-          <div class="ps-bar w-4 c-bg-primary-500 rounded-t" style="transition-delay: 250ms" :style="{ height: $clicks === 0 ? '51.2%' : '0%' }"></div>
-          <div class="ps-bar w-4 c-bg-primary-700 rounded-t" style="transition-delay: 350ms" :style="{ height: $clicks === 0 ? '60.8%' : '0%' }"></div>
+          <div class="ps-bar w-4 bar-gaze rounded-t" style="transition-delay: 250ms" :style="{ height: $clicks === 0 ? '51.2%' : '0%' }"></div>
+          <div class="ps-bar w-4 bar-face rounded-t" style="transition-delay: 350ms" :style="{ height: $clicks === 0 ? '60.8%' : '0%' }"></div>
         </div>
         <span class="text-[10px] font-bold mt-2 uppercase leading-none text-center">AUC BIN<br>dante</span>
       </div>
@@ -603,55 +603,55 @@ style: 'grid-template-columns: 1fr 2fr;'
 
   <div class="ps-panel absolute inset-0 flex flex-col" :class="$clicks === 1 ? 'ps-panel-active' : 'ps-panel-inactive'">
     <div class="flex justify-center gap-6 mb-4">
-      <div class="flex items-center gap-2"><div class="w-3 h-3 c-bg-primary-500 rounded-sm"></div><span class="text-[10px]">HRV Gaze</span></div>
-      <div class="flex items-center gap-2"><div class="w-3 h-3 c-bg-primary-700 rounded-sm"></div><span class="text-[10px]">HRV Face</span></div>
+      <div class="flex items-center gap-2"><div class="w-3 h-3 bar-gaze-hrv rounded-sm"></div><span class="text-[10px]">HRV Gaze</span></div>
+      <div class="flex items-center gap-2"><div class="w-3 h-3 bar-face-hrv rounded-sm"></div><span class="text-[10px]">HRV Face</span></div>
       <div class="flex items-center gap-2 border-l pl-4 border-gray-300"></div>
-      <div class="flex items-center gap-2"><div class="w-3 h-3 bg-teal-500 rounded-sm"></div><span class="text-[10px]">SCR Gaze</span></div>
-      <div class="flex items-center gap-2"><div class="w-3 h-3 bg-teal-700 rounded-sm"></div><span class="text-[10px]">SCR Face</span></div>
+      <div class="flex items-center gap-2"><div class="w-3 h-3 bar-gaze-scr rounded-sm"></div><span class="text-[10px]">SCR Gaze</span></div>
+      <div class="flex items-center gap-2"><div class="w-3 h-3 bar-face-scr rounded-sm"></div><span class="text-[10px]">SCR Face</span></div>
     </div>
     <div class="relative h-95 border-b c-border-neutral-400 flex items-end justify-between px-4 pb-0">
       <div class="flex flex-col items-center flex-1">
         <div class="flex items-end gap-1 h-100 w-full justify-center">
-          <div class="ps-bar w-2 c-bg-primary-500 rounded-t" :style="{ height: $clicks === 1 ? '71.5%' : '0%' }"></div>
-          <div class="ps-bar w-2 c-bg-primary-700 rounded-t" :style="{ height: $clicks === 1 ? '74.5%' : '0%' }"></div>
-          <div class="ps-bar w-2 bg-teal-500 rounded-t ml-1" :style="{ height: $clicks === 1 ? '52.1%' : '0%' }"></div>
-          <div class="ps-bar w-2 bg-teal-700 rounded-t" :style="{ height: $clicks === 1 ? '54.0%' : '0%' }"></div>
+          <div class="ps-bar w-3 bar-gaze-hrv rounded-t" :style="{ height: $clicks === 1 ? '71.5%' : '0%' }"></div>
+          <div class="ps-bar w-3 bar-face-hrv rounded-t" :style="{ height: $clicks === 1 ? '74.5%' : '0%' }"></div>
+          <div class="ps-bar w-3 bar-gaze-scr rounded-t ml-1" :style="{ height: $clicks === 1 ? '52.1%' : '0%' }"></div>
+          <div class="ps-bar w-3 bar-face-scr rounded-t" :style="{ height: $clicks === 1 ? '54.0%' : '0%' }"></div>
         </div>
         <span class="text-[9px] font-bold mt-2">AP</span>
       </div>
       <div class="flex flex-col items-center flex-1">
         <div class="flex items-end gap-1 h-100 w-full justify-center">
-          <div class="ps-bar w-2 c-bg-primary-500 rounded-t" :style="{ height: $clicks === 1 ? '63.7%' : '0%' }"></div>
-          <div class="ps-bar w-2 c-bg-primary-700 rounded-t" :style="{ height: $clicks === 1 ? '69.1%' : '0%' }"></div>
-          <div class="ps-bar w-2 bg-teal-500 rounded-t ml-1" :style="{ height: $clicks === 1 ? '50.0%' : '0%' }"></div>
-          <div class="ps-bar w-2 bg-teal-700 rounded-t" :style="{ height: $clicks === 1 ? '54.9%' : '0%' }"></div>
+          <div class="ps-bar w-3 bar-gaze-hrv rounded-t" :style="{ height: $clicks === 1 ? '63.7%' : '0%' }"></div>
+          <div class="ps-bar w-3 bar-face-hrv rounded-t" :style="{ height: $clicks === 1 ? '69.1%' : '0%' }"></div>
+          <div class="ps-bar w-3 bar-gaze-scr rounded-t ml-1" :style="{ height: $clicks === 1 ? '50.0%' : '0%' }"></div>
+          <div class="ps-bar w-3 bar-face-scr rounded-t" :style="{ height: $clicks === 1 ? '54.9%' : '0%' }"></div>
         </div>
         <span class="text-[9px] font-bold mt-2">F1</span>
       </div>
       <div class="flex flex-col items-center flex-1">
         <div class="flex items-end gap-1 h-100 w-full justify-center">
-          <div class="ps-bar w-2 c-bg-primary-500 rounded-t" :style="{ height: $clicks === 1 ? '62.3%' : '0%' }"></div>
-          <div class="ps-bar w-2 c-bg-primary-700 rounded-t" :style="{ height: $clicks === 1 ? '76.1%' : '0%' }"></div>
-          <div class="ps-bar w-2 bg-teal-500 rounded-t ml-1" :style="{ height: $clicks === 1 ? '54.7%' : '0%' }"></div>
-          <div class="ps-bar w-2 bg-teal-700 rounded-t" :style="{ height: $clicks === 1 ? '71.3%' : '0%' }"></div>
+          <div class="ps-bar w-3 bar-gaze-hrv rounded-t" :style="{ height: $clicks === 1 ? '62.3%' : '0%' }"></div>
+          <div class="ps-bar w-3 bar-face-hrv rounded-t" :style="{ height: $clicks === 1 ? '76.1%' : '0%' }"></div>
+          <div class="ps-bar w-3 bar-gaze-scr rounded-t ml-1" :style="{ height: $clicks === 1 ? '54.7%' : '0%' }"></div>
+          <div class="ps-bar w-3 bar-face-scr rounded-t" :style="{ height: $clicks === 1 ? '71.3%' : '0%' }"></div>
         </div>
         <span class="text-[9px] font-bold mt-2 leading-tight text-center">AUC<br>EXP</span>
       </div>
       <div class="flex flex-col items-center flex-1">
         <div class="flex items-end gap-1 h-100 w-full justify-center">
-          <div class="ps-bar w-2 c-bg-primary-500 rounded-t" :style="{ height: $clicks === 1 ? '44.9%' : '0%' }"></div>
-          <div class="ps-bar w-2 c-bg-primary-700 rounded-t" :style="{ height: $clicks === 1 ? '47.6%' : '0%' }"></div>
-          <div class="ps-bar w-2 bg-teal-500 rounded-t ml-1" :style="{ height: $clicks === 1 ? '51.7%' : '0%' }"></div>
-          <div class="ps-bar w-2 bg-teal-700 rounded-t" :style="{ height: $clicks === 1 ? '54.6%' : '0%' }"></div>
+          <div class="ps-bar w-3 bar-gaze-hrv rounded-t" :style="{ height: $clicks === 1 ? '44.9%' : '0%' }"></div>
+          <div class="ps-bar w-3 bar-face-hrv rounded-t" :style="{ height: $clicks === 1 ? '47.6%' : '0%' }"></div>
+          <div class="ps-bar w-3 bar-gaze-scr rounded-t ml-1" :style="{ height: $clicks === 1 ? '51.7%' : '0%' }"></div>
+          <div class="ps-bar w-3 bar-face-scr rounded-t" :style="{ height: $clicks === 1 ? '54.6%' : '0%' }"></div>
         </div>
         <span class="text-[9px] font-bold mt-2 leading-tight text-center">AUC<br>PHYSIO</span>
       </div>
       <div class="flex flex-col items-center flex-1">
         <div class="flex items-end gap-1 h-100 w-full justify-center">
-          <div class="ps-bar w-2 c-bg-primary-500 rounded-t" :style="{ height: $clicks === 1 ? '48.8%' : '0%' }"></div>
-          <div class="ps-bar w-2 c-bg-primary-700 rounded-t" :style="{ height: $clicks === 1 ? '47.5%' : '0%' }"></div>
-          <div class="ps-bar w-2 bg-teal-500 rounded-t ml-1" :style="{ height: $clicks === 1 ? '50.8%' : '0%' }"></div>
-          <div class="ps-bar w-2 bg-teal-700 rounded-t" :style="{ height: $clicks === 1 ? '52.9%' : '0%' }"></div>
+          <div class="ps-bar w-3 bar-gaze-hrv rounded-t" :style="{ height: $clicks === 1 ? '48.8%' : '0%' }"></div>
+          <div class="ps-bar w-3 bar-face-hrv rounded-t" :style="{ height: $clicks === 1 ? '47.5%' : '0%' }"></div>
+          <div class="ps-bar w-3 bar-gaze-scr rounded-t ml-1" :style="{ height: $clicks === 1 ? '50.8%' : '0%' }"></div>
+          <div class="ps-bar w-3 bar-face-scr rounded-t" :style="{ height: $clicks === 1 ? '52.9%' : '0%' }"></div>
         </div>
         <span class="text-[9px] font-bold mt-2 leading-tight text-center">AUC BIN<br>PHYSIO</span>
       </div>
@@ -665,7 +665,7 @@ style: 'grid-template-columns: 1fr 2fr;'
     SPEARMAN
 -->
 
-  <div class="absolute inset-0 flex flex-col items-center justify-center p-8 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] transform-gpu" 
+  <div class="absolute inset-0 flex flex-col items-center justify-center transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] transform-gpu" 
       :class="$clicks === 2 ? 'opacity-100 scale-100 z-20' : 'opacity-0 scale-50 z-0 pointer-events-none'">
     <div class="max-w-4xl mb-6">
       <img src="./images/violin_Spearman_by_dtype_regime.svg" class="rounded shadow-lg" width="400"/>
@@ -684,25 +684,47 @@ style: 'grid-template-columns: 1fr 2fr;'
     CROSS-CORRELATION
 -->
 
-  <div class="absolute inset-0 flex items-center justify-center p-8 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] transform-gpu" 
+  <div class="absolute inset-0 flex items-center justify-center transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] transform-gpu" 
       :class="$clicks >= 3 ? 'opacity-100 scale-100 z-20' : 'opacity-0 scale-50 z-0 pointer-events-none'">
-    <div class="grid grid-cols-2 gap-6 w-full max-w-5xl items-center justify-items-center">
+    <div class="grid grid-cols-2 gap-2 w-full max-w-5xl items-center justify-items-center">
       <div class="bg-white rounded-lg shadow-md">
-        <img src="https://placehold.co/400x400?text=X-Corr-face-HRV" class="w-full h-auto rounded" />
+        <img src="./images/xcorr_profile_hrv_face.png" class="w-full h-auto rounded" />
       </div>
       <div class="bg-white rounded-lg shadow-md">
-        <img src="https://placehold.co/400x400?text=X-Corr-face-SCR" class="w-full h-auto rounded" />
+        <img src="./images/xcorr_profile_scr_face.png" class="w-full h-auto rounded" />
       </div>
       <div class="bg-white rounded-lg shadow-md">
-        <img src="https://placehold.co/400x400?text=X-Corr-eye-SCR" class="w-full h-auto rounded" />
+        <img src="./images/xcorr_profile_eye_hrv.png" class="w-full h-auto rounded" />
       </div>
       <div class="bg-white rounded-lg shadow-md">
-        <img src="https://placehold.co/400x400?text=X-Corr-eye-SCR" class="w-full h-auto rounded" />
+        <img src="./images/xcorr_profile_eye_scr.png" class="w-full h-auto rounded" />
       </div>
     </div>
   </div>
 
 </div>
+
+<style>
+  .bar-face {
+    @apply bg-purple-600;
+  }
+  .bar-gaze {
+    @apply bg-blue-400;
+  }
+  .bar-face-scr {
+    @apply bg-orange-600;
+  }
+  .bar-face-hrv {
+    @apply bg-lightblue-600;
+  }
+  .bar-gaze-scr {
+    @apply bg-yellow-500;
+  }
+  .bar-gaze-hrv {
+    @apply bg-green-400;
+  }
+</style>
+
 ---
 layout: two-cols
 style: 'grid-template-columns: 1fr 2fr;'
@@ -731,54 +753,54 @@ style: 'grid-template-columns: 1fr 2fr;'
 
   <div class="ps-panel absolute inset-0 flex flex-col" :class="$clicks === 0 ? 'ps-panel-active' : 'ps-panel-inactive'">
     <div class="flex justify-center gap-6 mb-4">
-      <div class="flex items-center gap-2"><div class="w-3 h-3 c-bg-primary-500 rounded"></div><span class="text-xs">Gaze (Single)</span></div>
-      <div class="flex items-center gap-2"><div class="w-3 h-3 c-bg-primary-400 rounded"></div><span class="text-xs">Gaze (LOO)</span></div>
-      <div class="flex items-center gap-2"><div class="w-3 h-3 c-bg-primary-700 rounded"></div><span class="text-xs">Face (Single)</span></div>
-      <div class="flex items-center gap-2"><div class="w-3 h-3 c-bg-primary-400 rounded"></div><span class="text-xs">Face (LOO)</span></div>
+      <div class="flex items-center gap-2"><div class="w-3 h-3 bar-gaze-single rounded"></div><span class="text-xs">Gaze (Single)</span></div>
+      <div class="flex items-center gap-2"><div class="w-3 h-3 bar-gaze-loo rounded"></div><span class="text-xs">Gaze (LOO)</span></div>
+      <div class="flex items-center gap-2"><div class="w-3 h-3 bar-face-single rounded"></div><span class="text-xs">Face (Single)</span></div>
+      <div class="flex items-center gap-2"><div class="w-3 h-3 bar-face-loo rounded"></div><span class="text-xs">Face (LOO)</span></div>
     </div>
     <div class="relative h-90 border-b c-border-neutral-400 flex items-end justify-between px-4 pb-0">
       <div class="flex flex-col items-center flex-1">
         <div class="flex items-end gap-1 h-100 w-full justify-center">
-          <div class="ps-bar w-3 c-bg-primary-500 rounded-t" style="transition-delay: 40ms" :style="{ height: $clicks === 0 ? '72.7%' : '0%' }"></div>
-          <div class="ps-bar w-3 c-bg-primary-400 rounded-t" style="transition-delay: 110ms" :style="{ height: $clicks === 0 ? '70.0%' : '0%' }"></div>
-          <div class="ps-bar w-3 c-bg-primary-700 rounded-t" style="transition-delay: 180ms" :style="{ height: $clicks === 0 ? '77.8%' : '0%' }"></div>
-          <div class="ps-bar w-3 c-bg-primary-400 rounded-t" style="transition-delay: 250ms" :style="{ height: $clicks === 0 ? '76.2%' : '0%' }"></div>
+          <div class="ps-bar w-3 bar-gaze-single rounded-t" style="transition-delay: 40ms" :style="{ height: $clicks === 0 ? '72.7%' : '0%' }"></div>
+          <div class="ps-bar w-3 bar-gaze-loo rounded-t" style="transition-delay: 110ms" :style="{ height: $clicks === 0 ? '70.0%' : '0%' }"></div>
+          <div class="ps-bar w-3 bar-face-single rounded-t" style="transition-delay: 180ms" :style="{ height: $clicks === 0 ? '77.8%' : '0%' }"></div>
+          <div class="ps-bar w-3 bar-face-loo rounded-t" style="transition-delay: 250ms" :style="{ height: $clicks === 0 ? '76.2%' : '0%' }"></div>
         </div>
         <span class="text-[10px] font-bold mt-2 uppercase">AP</span>
       </div>
       <div class="flex flex-col items-center flex-1">
         <div class="flex items-end gap-1 h-100 w-full justify-center">
-          <div class="ps-bar w-3 c-bg-primary-500 rounded-t" style="transition-delay: 90ms" :style="{ height: $clicks === 0 ? '63.0%' : '0%' }"></div>
-          <div class="ps-bar w-3 c-bg-primary-400 rounded-t" style="transition-delay: 160ms" :style="{ height: $clicks === 0 ? '60.7%' : '0%' }"></div>
-          <div class="ps-bar w-3 c-bg-primary-700 rounded-t" style="transition-delay: 230ms" :style="{ height: $clicks === 0 ? '71.4%' : '0%' }"></div>
-          <div class="ps-bar w-3 c-bg-primary-400 rounded-t" style="transition-delay: 300ms" :style="{ height: $clicks === 0 ? '69.3%' : '0%' }"></div>
+          <div class="ps-bar w-3 bar-gaze-single rounded-t" style="transition-delay: 90ms" :style="{ height: $clicks === 0 ? '63.0%' : '0%' }"></div>
+          <div class="ps-bar w-3 bar-gaze-loo rounded-t" style="transition-delay: 160ms" :style="{ height: $clicks === 0 ? '60.7%' : '0%' }"></div>
+          <div class="ps-bar w-3 bar-face-single rounded-t" style="transition-delay: 230ms" :style="{ height: $clicks === 0 ? '71.4%' : '0%' }"></div>
+          <div class="ps-bar w-3 bar-face-loo rounded-t" style="transition-delay: 300ms" :style="{ height: $clicks === 0 ? '69.3%' : '0%' }"></div>
         </div>
         <span class="text-[10px] font-bold mt-2 uppercase">F1</span>
       </div>
       <div class="flex flex-col items-center flex-1">
         <div class="flex items-end gap-1 h-100 w-full justify-center">
-          <div class="ps-bar w-3 c-bg-primary-500 rounded-t" style="transition-delay: 140ms" :style="{ height: $clicks === 0 ? '62.3%' : '0%' }"></div>
-          <div class="ps-bar w-3 c-bg-primary-400 rounded-t" style="transition-delay: 210ms" :style="{ height: $clicks === 0 ? '60.3%' : '0%' }"></div>
-          <div class="ps-bar w-3 c-bg-primary-700 rounded-t" style="transition-delay: 280ms" :style="{ height: $clicks === 0 ? '76.1%' : '0%' }"></div>
-          <div class="ps-bar w-3 c-bg-primary-400 rounded-t" style="transition-delay: 350ms" :style="{ height: $clicks === 0 ? '73.0%' : '0%' }"></div>
+          <div class="ps-bar w-3 bar-gaze-single rounded-t" style="transition-delay: 140ms" :style="{ height: $clicks === 0 ? '62.3%' : '0%' }"></div>
+          <div class="ps-bar w-3 bar-gaze-loo rounded-t" style="transition-delay: 210ms" :style="{ height: $clicks === 0 ? '60.3%' : '0%' }"></div>
+          <div class="ps-bar w-3 bar-face-single rounded-t" style="transition-delay: 280ms" :style="{ height: $clicks === 0 ? '76.1%' : '0%' }"></div>
+          <div class="ps-bar w-3 bar-face-loo rounded-t" style="transition-delay: 350ms" :style="{ height: $clicks === 0 ? '73.0%' : '0%' }"></div>
         </div>
         <span class="text-[10px] font-bold mt-2 uppercase leading-none text-center">AUC<br>exp</span>
       </div>
       <div class="flex flex-col items-center flex-1">
         <div class="flex items-end gap-1 h-100 w-full justify-center">
-          <div class="ps-bar w-3 c-bg-primary-500 rounded-t" style="transition-delay: 190ms" :style="{ height: $clicks === 0 ? '54.2%' : '0%' }"></div>
-          <div class="ps-bar w-3 c-bg-primary-400 rounded-t" style="transition-delay: 260ms" :style="{ height: $clicks === 0 ? '52.6%' : '0%' }"></div>
-          <div class="ps-bar w-3 c-bg-primary-700 rounded-t" style="transition-delay: 330ms" :style="{ height: $clicks === 0 ? '67.8%' : '0%' }"></div>
-          <div class="ps-bar w-3 c-bg-primary-400 rounded-t" style="transition-delay: 400ms" :style="{ height: $clicks === 0 ? '65.0%' : '0%' }"></div>
+          <div class="ps-bar w-3 bar-gaze-single rounded-t" style="transition-delay: 190ms" :style="{ height: $clicks === 0 ? '54.2%' : '0%' }"></div>
+          <div class="ps-bar w-3 bar-gaze-loo rounded-t" style="transition-delay: 260ms" :style="{ height: $clicks === 0 ? '52.6%' : '0%' }"></div>
+          <div class="ps-bar w-3 bar-face-single rounded-t" style="transition-delay: 330ms" :style="{ height: $clicks === 0 ? '67.8%' : '0%' }"></div>
+          <div class="ps-bar w-3 bar-face-loo rounded-t" style="transition-delay: 400ms" :style="{ height: $clicks === 0 ? '65.0%' : '0%' }"></div>
         </div>
         <span class="text-[10px] font-bold mt-2 uppercase leading-none text-center">AUC<br>dante</span>
       </div>
       <div class="flex flex-col items-center flex-1">
         <div class="flex items-end gap-1 h-100 w-full justify-center">
-          <div class="ps-bar w-3 c-bg-primary-500 rounded-t" style="transition-delay: 240ms" :style="{ height: $clicks === 0 ? '51.1%' : '0%' }"></div>
-          <div class="ps-bar w-3 c-bg-primary-400 rounded-t" style="transition-delay: 310ms" :style="{ height: $clicks === 0 ? '51.7%' : '0%' }"></div>
-          <div class="ps-bar w-3 c-bg-primary-700 rounded-t" style="transition-delay: 380ms" :style="{ height: $clicks === 0 ? '60.7%' : '0%' }"></div>
-          <div class="ps-bar w-3 c-bg-primary-400 rounded-t" style="transition-delay: 450ms" :style="{ height: $clicks === 0 ? '60.5%' : '0%' }"></div>
+          <div class="ps-bar w-3 bar-gaze-single rounded-t" style="transition-delay: 240ms" :style="{ height: $clicks === 0 ? '51.1%' : '0%' }"></div>
+          <div class="ps-bar w-3 bar-gaze-loo rounded-t" style="transition-delay: 310ms" :style="{ height: $clicks === 0 ? '51.7%' : '0%' }"></div>
+          <div class="ps-bar w-3 bar-face-single rounded-t" style="transition-delay: 380ms" :style="{ height: $clicks === 0 ? '60.7%' : '0%' }"></div>
+          <div class="ps-bar w-3 bar-face-loo rounded-t" style="transition-delay: 450ms" :style="{ height: $clicks === 0 ? '60.5%' : '0%' }"></div>
         </div>
         <span class="text-[10px] font-bold mt-2 uppercase leading-none text-center">AUC BIN<br>dante</span>
       </div>
@@ -790,48 +812,48 @@ style: 'grid-template-columns: 1fr 2fr;'
 
   <div class="ps-panel absolute inset-0 flex flex-col" :class="$clicks === 1 ? 'ps-panel-active' : 'ps-panel-inactive'">
       <div class="flex justify-center gap-6 mb-4">
-        <div class="flex items-center gap-2"><div class="w-3 h-3 c-bg-primary-500 rounded"></div><span class="text-xs">Gaze (Single-Enc)</span></div>
-        <div class="flex items-center gap-2"><div class="w-3 h-3 c-bg-primary-600 rounded"></div><span class="text-xs">Face (Single-Enc)</span></div>
-        <div class="flex items-center gap-2"><div class="w-3 h-3 c-bg-phase-3 rounded"></div><span class="text-xs">Gaze+Face (Multi-Enc)</span></div>
+        <div class="flex items-center gap-2"><div class="w-3 h-3 bar-gaze-single rounded"></div><span class="text-xs">Gaze (Single-Enc)</span></div>
+        <div class="flex items-center gap-2"><div class="w-3 h-3 bar-face-single rounded"></div><span class="text-xs">Face (Single-Enc)</span></div>
+        <div class="flex items-center gap-2"><div class="w-3 h-3 bar-multi rounded"></div><span class="text-xs">Gaze+Face (Multi-Enc)</span></div>
       </div>
       <div class="relative h-90 border-b c-border-neutral-400 flex items-end justify-between px-4 pb-0">
         <div class="flex flex-col items-center flex-1">
           <div class="flex items-end gap-1.5 h-100 w-full justify-center">
-            <div class="ps-bar w-4 c-bg-primary-500 rounded-t" style="transition-delay: 40ms" :style="{ height: $clicks === 1 ? '68.4%' : '0%' }"></div>
-            <div class="ps-bar w-4 c-bg-primary-600 rounded-t" style="transition-delay: 120ms" :style="{ height: $clicks === 1 ? '77.8%' : '0%' }"></div>
-            <div class="ps-bar w-4 c-bg-phase-3 rounded-t" style="transition-delay: 200ms" :style="{ height: $clicks === 1 ? '77.1%' : '0%' }"></div>
+            <div class="ps-bar w-4 bar-gaze-single rounded-t" style="transition-delay: 40ms" :style="{ height: $clicks === 1 ? '68.4%' : '0%' }"></div>
+            <div class="ps-bar w-4 bar-face-single rounded-t" style="transition-delay: 120ms" :style="{ height: $clicks === 1 ? '77.8%' : '0%' }"></div>
+            <div class="ps-bar w-4 bar-multi rounded-t" style="transition-delay: 200ms" :style="{ height: $clicks === 1 ? '77.1%' : '0%' }"></div>
           </div>
           <span class="text-[10px] font-bold mt-2 uppercase">AP</span>
         </div>
         <div class="flex flex-col items-center flex-1">
           <div class="flex items-end gap-1.5 h-100 w-full justify-center">
-            <div class="ps-bar w-4 c-bg-primary-500 rounded-t" style="transition-delay: 100ms" :style="{ height: $clicks === 1 ? '59.7%' : '0%' }"></div>
-            <div class="ps-bar w-4 c-bg-primary-600 rounded-t" style="transition-delay: 180ms" :style="{ height: $clicks === 1 ? '71.4%' : '0%' }"></div>
-            <div class="ps-bar w-4 c-bg-phase-3 rounded-t" style="transition-delay: 260ms" :style="{ height: $clicks === 1 ? '68.5%' : '0%' }"></div>
+            <div class="ps-bar w-4 bar-gaze-single rounded-t" style="transition-delay: 100ms" :style="{ height: $clicks === 1 ? '59.7%' : '0%' }"></div>
+            <div class="ps-bar w-4 bar-face-single rounded-t" style="transition-delay: 180ms" :style="{ height: $clicks === 1 ? '71.4%' : '0%' }"></div>
+            <div class="ps-bar w-4 bar-multi rounded-t" style="transition-delay: 260ms" :style="{ height: $clicks === 1 ? '68.5%' : '0%' }"></div>
           </div>
           <span class="text-[10px] font-bold mt-2 uppercase">F1</span>
         </div>
         <div class="flex flex-col items-center flex-1">
           <div class="flex items-end gap-1.5 h-100 w-full justify-center">
-            <div class="ps-bar w-4 c-bg-primary-500 rounded-t" style="transition-delay: 160ms" :style="{ height: $clicks === 1 ? '62.2%' : '0%' }"></div>
-            <div class="ps-bar w-4 c-bg-primary-600 rounded-t" style="transition-delay: 240ms" :style="{ height: $clicks === 1 ? '76.4%' : '0%' }"></div>
-            <div class="ps-bar w-4 c-bg-phase-3 rounded-t" style="transition-delay: 320ms" :style="{ height: $clicks === 1 ? '69.4%' : '0%' }"></div>
+            <div class="ps-bar w-4 bar-gaze-single rounded-t" style="transition-delay: 160ms" :style="{ height: $clicks === 1 ? '62.2%' : '0%' }"></div>
+            <div class="ps-bar w-4 bar-face-single rounded-t" style="transition-delay: 240ms" :style="{ height: $clicks === 1 ? '76.4%' : '0%' }"></div>
+            <div class="ps-bar w-4 bar-multi rounded-t" style="transition-delay: 320ms" :style="{ height: $clicks === 1 ? '69.4%' : '0%' }"></div>
           </div>
           <span class="text-[10px] font-bold mt-2 uppercase leading-none text-center">AUC<br>exp</span>
         </div>
         <div class="flex flex-col items-center flex-1">
           <div class="flex items-end gap-1.5 h-100 w-full justify-center">
-            <div class="ps-bar w-4 c-bg-primary-500 rounded-t" style="transition-delay: 220ms" :style="{ height: $clicks === 1 ? '55.4%' : '0%' }"></div>
-            <div class="ps-bar w-4 c-bg-primary-600 rounded-t" style="transition-delay: 300ms" :style="{ height: $clicks === 1 ? '69.9%' : '0%' }"></div>
-            <div class="ps-bar w-4 c-bg-phase-3 rounded-t" style="transition-delay: 380ms" :style="{ height: $clicks === 1 ? '58.1%' : '0%' }"></div>
+            <div class="ps-bar w-4 bar-gaze-single rounded-t" style="transition-delay: 220ms" :style="{ height: $clicks === 1 ? '55.4%' : '0%' }"></div>
+            <div class="ps-bar w-4 bar-face-single rounded-t" style="transition-delay: 300ms" :style="{ height: $clicks === 1 ? '69.9%' : '0%' }"></div>
+            <div class="ps-bar w-4 bar-multi rounded-t" style="transition-delay: 380ms" :style="{ height: $clicks === 1 ? '58.1%' : '0%' }"></div>
           </div>
           <span class="text-[10px] font-bold mt-2 uppercase leading-none text-center">AUC<br>dante</span>
         </div>
         <div class="flex flex-col items-center flex-1">
           <div class="flex items-end gap-1.5 h-100 w-full justify-center">
-            <div class="ps-bar w-4 c-bg-primary-500 rounded-t" style="transition-delay: 280ms" :style="{ height: $clicks === 1 ? '50.7%' : '0%' }"></div>
-            <div class="ps-bar w-4 c-bg-primary-600 rounded-t" style="transition-delay: 360ms" :style="{ height: $clicks === 1 ? '62.6%' : '0%' }"></div>
-            <div class="ps-bar w-4 c-bg-phase-3 rounded-t" style="transition-delay: 440ms" :style="{ height: $clicks === 1 ? '52.7%' : '0%' }"></div>
+            <div class="ps-bar w-4 bar-gaze-single rounded-t" style="transition-delay: 280ms" :style="{ height: $clicks === 1 ? '50.7%' : '0%' }"></div>
+            <div class="ps-bar w-4 bar-face-single rounded-t" style="transition-delay: 360ms" :style="{ height: $clicks === 1 ? '62.6%' : '0%' }"></div>
+            <div class="ps-bar w-4 bar-multi rounded-t" style="transition-delay: 440ms" :style="{ height: $clicks === 1 ? '52.7%' : '0%' }"></div>
           </div>
           <span class="text-[10px] font-bold mt-2 uppercase leading-none text-center">AUC BIN<br>dante</span>
         </div>
@@ -841,6 +863,24 @@ style: 'grid-template-columns: 1fr 2fr;'
       </p>
     </div>
 </div>
+
+<style>
+  .bar-face-single {
+    @apply bg-amber-400
+  }
+  .bar-face-loo {
+    @apply bg-red-600
+  }
+  .bar-gaze-single {
+    @apply bg-cyan-300
+  }
+  .bar-gaze-loo {
+    @apply bg-teal-700
+  }
+  .bar-multi {
+    @apply bg-purple-700
+  }
+</style>
 
 ---
 layout: two-cols
