@@ -4,6 +4,7 @@ background: https://source.unsplash.com/featured/?technology,virtual-reality
 class: text-center c-text-primary-900
 highlighter: shiki
 colorSchema: light
+progress: true
 lineNumbers: false
 info: |
   ## ALESSIA Presentation
@@ -35,9 +36,9 @@ layout: two-cols
 
 <br>
 
-- Interfacce tradizionali: utente come **dispositivo stateless**
-- **VR**: interazioni immersive con stimoli sociali controllati
-- **Virtual Human**: da NPC scriptati a agenti generativi fotorealistici
+- Utente come **dispositivo stateless**
+- Interazioni **VR** immersive con stimoli controllati
+- Da NPC scriptati a **agenti generativi** fotorealistici
 
 <br>
 
@@ -54,30 +55,34 @@ layout: two-cols
 ---
 
 # Obiettivi
-
+<br>
 <div class="mt-6 max-w-5xl mx-auto">
-  <div class="text-center text-[26px] leading-tight font-semibold c-text-primary-900 max-w-4xl mx-auto">
-    Sviluppare un sistema multimodale per il rilevamento non invasivo dello stress sociale in VR
+  <div class="text-center text-[18px] font-semibold max-w-4xl mx-auto">
+    <span class="c-text-primary-700">Sviluppo di un sistema multimodale per il rilevamento non invasivo dello stress sociale in VR</span>
   </div>
+
+  <div v-click class="hidden"></div>
+  <div v-click class="hidden"></div>
+  <div v-click class="hidden"></div>
 
   <div class="objectives-timeline mt-10">
     <div class="objectives-line"></div>
-    <div class="objectives-step objectives-step-top">
+    <div class="objectives-step objectives-step-top" :class="$clicks === 0 ? 'objectives-step-current' : ($clicks > 0 ? 'objectives-step-done' : 'objectives-step-next')">
       <div class="objectives-card">Virtual Human<br>generativo</div>
       <div class="objectives-connector"></div>
       <div class="objectives-dot"></div>
     </div>
-    <div class="objectives-step objectives-step-bottom">
+    <div class="objectives-step objectives-step-bottom" :class="$clicks === 1 ? 'objectives-step-current' : ($clicks > 1 ? 'objectives-step-done' : 'objectives-step-next')">
       <div class="objectives-card">Pipeline<br>multimodale</div>
       <div class="objectives-connector"></div>
       <div class="objectives-dot"></div>
     </div>
-    <div class="objectives-step objectives-step-top">
+    <div class="objectives-step objectives-step-top" :class="$clicks === 2 ? 'objectives-step-current' : ($clicks > 2 ? 'objectives-step-done' : 'objectives-step-next')">
       <div class="objectives-card">LSTM-VAE</div>
       <div class="objectives-connector"></div>
       <div class="objectives-dot"></div>
     </div>
-    <div class="objectives-step objectives-step-bottom">
+    <div class="objectives-step objectives-step-bottom" :class="$clicks >= 3 ? 'objectives-step-current' : 'objectives-step-next'">
       <div class="objectives-card">Validazione</div>
       <div class="objectives-connector"></div>
       <div class="objectives-dot"></div>
@@ -107,6 +112,7 @@ layout: two-cols
 
 .objectives-step {
   position: relative;
+  transition: opacity 460ms cubic-bezier(0.22, 1, 0.36, 1), transform 460ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .objectives-dot {
@@ -120,6 +126,7 @@ layout: two-cols
   background: var(--c-primary-600);
   box-shadow: 0 0 0 6px var(--c-primary-50);
   z-index: 3;
+  transition: transform 460ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 460ms cubic-bezier(0.22, 1, 0.36, 1), background-color 460ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .objectives-card {
@@ -139,6 +146,7 @@ layout: two-cols
   padding: 0.6rem 0.8rem;
   box-shadow: 0 8px 22px -16px rgba(var(--c-shadow-primary-rgb), 0.55);
   z-index: 2;
+  transition: transform 460ms cubic-bezier(0.22, 1, 0.36, 1), opacity 460ms cubic-bezier(0.22, 1, 0.36, 1), border-color 460ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 460ms cubic-bezier(0.22, 1, 0.36, 1), background-color 460ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .objectives-connector {
@@ -148,6 +156,58 @@ layout: two-cols
   width: 2px;
   background: var(--c-primary-400);
   z-index: 1;
+  transition: background-color 460ms cubic-bezier(0.22, 1, 0.36, 1), transform 460ms cubic-bezier(0.22, 1, 0.36, 1), opacity 460ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.objectives-step-next {
+  opacity: 0.58;
+}
+
+.objectives-step-next .objectives-card {
+  transform: translateX(-50%) scale(0.95);
+}
+
+.objectives-step-next .objectives-dot {
+  transform: translate(-50%, -50%) scale(0.84);
+  background: var(--c-primary-400);
+  box-shadow: 0 0 0 4px var(--c-primary-300);
+}
+
+.objectives-step-current {
+  opacity: 1;
+}
+
+.objectives-step-current .objectives-card {
+  transform: translateX(-50%) scale(1.08);
+  border-color: var(--c-primary-500);
+  background: linear-gradient(180deg, var(--c-white), var(--c-primary-50));
+  box-shadow: 0 16px 25px -10px rgba(var(--c-shadow-accent-rgb), 0.3);
+}
+
+.objectives-step-current .objectives-dot {
+  transform: translate(-50%, -50%) scale(1.5);
+  background: var(--c-primary-700);
+  box-shadow: 0 0 0 7px var(--c-primary-100);
+}
+
+.objectives-step-current .objectives-connector {
+  background: var(--c-primary-600);
+}
+
+.objectives-step-done {
+  opacity: 0.9;
+}
+
+.objectives-step-done .objectives-card {
+  transform: translateX(-50%) scale(0.99);
+  border-color: var(--c-primary-400);
+  background: var(--c-primary-50);
+}
+
+.objectives-step-done .objectives-dot {
+  transform: translate(-50%, -50%) scale(1);
+  background: var(--c-primary-600);
+  box-shadow: 0 0 0 5px var(--c-primary-100);
 }
 
 .objectives-step-top .objectives-card {

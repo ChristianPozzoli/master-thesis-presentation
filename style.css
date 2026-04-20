@@ -227,3 +227,25 @@
   transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
   will-change: height;
 }
+
+/* Global presentation progress bar (uses Slidev built-in `progress: true`) */
+.slidev-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: rgba(var(--c-primary-100-rgb), 0.45);
+  border-radius: 0 0 9999px 9999px;
+  box-shadow: 0 8px 18px -14px rgba(var(--c-shadow-primary-rgb), 0.65);
+  z-index: 9999;
+}
+
+.slidev-progress > div,
+.slidev-progress > span {
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--c-primary-400), var(--c-primary-600));
+  box-shadow: 0 0 0 1px rgba(var(--c-primary-50-rgb), 0.45) inset;
+  transition: width 320ms cubic-bezier(0.22, 1, 0.36, 1);
+}
