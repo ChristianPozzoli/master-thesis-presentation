@@ -10,7 +10,6 @@
     "@slidev/cli": "latest",
     "@slidev/theme-seriph": "latest",
     "@slidev/theme-apple": "latest",
-    "@slidev/theme-academic": "latest",
     "playwright-chromium": "latest"
   }
 }
