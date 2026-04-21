@@ -1,11 +1,10 @@
 ---
-theme: light-icons
-background: https://source.unsplash.com/featured/?technology,virtual-reality
-class: text-center c-text-primary-900
+theme: academic
 highlighter: shiki
 colorSchema: light
 progress: true
 lineNumbers: false
+coverDate: false
 info: |
   ## ALESSIA Presentation
   Tesi di Laurea di Christian Pozzoli
@@ -13,7 +12,17 @@ drawings:
   persist: false
 transition: slide-left
 title: ALESSIA - Affective Latent Evaluation of Social Stress
+class: text-center
+layout: cover
 ---
+
+<div class="logo-top-left">
+  <img src="./images/pong-logo.png" alt="PONG Logo" />
+</div>
+
+<div class="logo-top-right">
+  <img src="./images/statale-unimi-logo.png" alt="Statale Unimi Logo" />
+</div>
 
 # ALESSIA
 ## **A**ffective **L**atent **E**valuation of **S**ocial **S**tress in **I**nterview **A**gents
@@ -24,8 +33,36 @@ title: ALESSIA - Affective Latent Evaluation of Social Stress
 
 Anno Accademico 2024-2025
 
+### Laurea Magistrale in Informatica
+
+<br>
+
 <style>
-@import "./style.css";
+.logo-top-left {
+  position: absolute;
+  bottom: 80px;
+  left: 40px;
+  z-index: 10;
+}
+
+.logo-top-left img {
+  height: 60px;
+  width: auto;
+  opacity: 1;
+}
+
+.logo-top-right {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  z-index: 10;
+}
+
+.logo-top-right img {
+  height: 160px;
+  width: auto;
+  opacity: 1;
+}
 </style>
 
 ---
@@ -36,9 +73,9 @@ layout: two-cols
 
 <br>
 
-- Utente come **dispositivo stateless**
 - Interazioni **VR** immersive con stimoli controllati
 - Da NPC scriptati a **agenti generativi** fotorealistici
+- Utente come attore **stateless**
 
 <br>
 
@@ -48,14 +85,19 @@ layout: two-cols
 
 <div class="flex flex-col items-center gap-5">
 	<img src="./images/doubt-la-noire.png" class="rounded shadow" width="250"/>
-	<img src="https://placehold.co/400x225?text=Interazione VR" class="rounded shadow" width="250"/>
+	<img src="./images/vr.png" class="rounded shadow" width="250"/>
 	<img src="./images/nvidia-ace.jpg" class="rounded shadow" width="250"/>
 </div>
 
 ---
+layout: two-cols
+style: 'grid-template-columns: 1fr 0.6fr;'
+---
 
 # Obiettivi
+
 <br>
+
 <div class="mt-6 max-w-5xl mx-auto">
   <div class="text-center text-[18px] font-semibold max-w-4xl mx-auto">
     <span class="c-text-primary-700">Sviluppo di un sistema multimodale per il rilevamento non invasivo dello stress sociale in VR</span>
@@ -89,6 +131,84 @@ layout: two-cols
     </div>
   </div>
 </div>
+
+::right::
+
+<div class="rq-container ml-18">
+  <div class="rq-header">Research Questions</div>
+  
+  <div class="rq-card">
+    <div class="rq-number">01</div>
+    <div class="rq-content">I dati VR classificano efficacemente lo stress?</div>
+  </div>
+  
+  <div class="rq-card">
+    <div class="rq-number">02</div>
+    <div class="rq-content">Il reconstruction error di un LSTM-VAE rileva deviazioni dalla baseline?</div>
+  </div>
+  
+  <div class="rq-card">
+    <div class="rq-number">03</div>
+    <div class="rq-content">Stress fisiologico o psicologico: quale correla di più?</div>
+  </div>
+  
+  <div class="rq-card">
+    <div class="rq-number">04</div>
+    <div class="rq-content">Face tracking e gaze tracking: qual è il contributo relativo?</div>
+  </div>
+  
+  <div class="rq-card">
+    <div class="rq-number">05</div>
+    <div class="rq-content">I pattern comportamentali anticipano la risposta autonomica?</div>
+  </div>
+</div>
+
+<style>
+.rq-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  height: 100%;
+  justify-content: center;
+}
+
+.rq-header {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--c-primary-700);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.7rem;
+  border-bottom: 2px solid var(--c-primary-300);
+}
+
+.rq-card {
+  display: flex;
+  gap: 0.8rem;
+  padding: 0.75rem 1rem;
+  border-left: 3px solid var(--c-primary-400);
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 0.5rem;
+  transition: all 300ms cubic-bezier(0.22, 1, 0.36, 1);
+  align-items: center;
+}
+
+.rq-number {
+  flex-shrink: 0;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--c-primary-600);
+  min-width: 32px;
+}
+
+.rq-content {
+  font-size: 0.8rem;
+  line-height: 1.35;
+  color: var(--c-primary-900);
+  text-align: left;
+}
+</style>
 
 <style>
 .objectives-timeline {
@@ -231,52 +351,52 @@ layout: two-cols
 
 ---
 
-# Hardware, Tool e Acquisizione
+# Hardware, Tool e Acquisizione multimodale
 
 <br>
 
 <div class="grid grid-cols-2 gap-4">
-  <div v-click class="hw-grid-card border c-border-neutral-300 rounded-xl p-5 flex flex-row items-center gap-6">
-    <img src="./images/unreal-logo.png" width="150" class="rounded-lg shrink-0" />
-    <div class="w-px h-20 c-bg-neutral-300 shrink-0" />
+  <div v-click class="hw-grid-card border c-border-primary-300 rounded-xl p-5 flex flex-row items-center gap-6">
+    <img src="./images/unreal-logo.png" width="140" class="rounded-lg shrink-0" />
+    <div class="w-2px h-20 hidden shrink-0" />
     <div class="flex flex-1 flex-col items-center justify-center text-center">
       <div class="font-bold text-lg mb-2">Unreal</div>
       <div class="flex gap-4 text-sm justify-center">
-        <span class="border c-border-primary-400 c-text-primary-400 rounded-full px-3.25 py-1.5 text-center">MetaXR</span>
-        <span class="border c-border-primary-400 c-text-primary-400 rounded-full px-3.25 py-1.5 text-center">MetaHuman</span>
+        <span class="border c-border-primary-300 c-white c-bg-primary-400 rounded-full px-3.25 py-1.5 text-center">MetaXR</span>
+        <span class="border c-border-primary-300 c-white c-bg-primary-400 rounded-full px-3.25 py-1.5 text-center">MetaHuman</span>
       </div>
     </div>
   </div>
-  <div v-click class="hw-grid-card border c-border-neutral-300 rounded-xl p-5 flex flex-row items-center gap-6">
-    <img src="./images/meta-quest-pro.jpg" width="150" class="rounded-lg shrink-0" />
-    <div class="w-px h-20 c-bg-neutral-300 shrink-0" />
+  <div v-click class="hw-grid-card border c-border-primary-300 rounded-xl p-5 flex flex-row items-center gap-6">
+    <img src="./images/meta-quest-pro.png" width="140" class="rounded-lg shrink-0" />
+    <div class="w-2px h-20 hidden shrink-0" />
     <div class="flex flex-1 flex-col items-center justify-center text-center">
       <div class="font-bold text-lg mb-2">Meta Quest Pro</div>
       <div class="flex gap-4 text-sm justify-center">
-        <span class="border c-border-primary-400 c-text-primary-400 rounded-full px-3.25 py-1.5 text-center">Face Tracking</span>
-        <span class="border c-border-primary-400 c-text-primary-400 rounded-full px-3.25 py-1.5 text-center">Eye Tracking</span>
+        <span class="border c-border-primary-300 c-white c-bg-primary-400 rounded-full px-3.25 py-1.5 text-center">Face Tracking</span>
+        <span class="border c-border-primary-300 c-white c-bg-primary-400 rounded-full px-3.25 py-1.5 text-center">Eye Tracking</span>
       </div>
     </div>
   </div>
-  <div v-click class="hw-grid-card border c-border-neutral-300 rounded-xl p-5 flex flex-row items-center gap-6">
-    <img src="./images/empatica.png" width="150" class="rounded-lg shrink-0" />
-    <div class="w-px h-16 c-bg-neutral-300 shrink-0" />
+  <div v-click class="hw-grid-card border c-border-primary-300 rounded-xl p-5 flex flex-row items-center gap-6">
+    <img src="./images/empatica.png" width="140" class="rounded-lg shrink-0" />
+    <div class="w-2px h-16 hidden shrink-0" />
     <div class="flex flex-1 flex-col items-center justify-center text-center">
       <div class="font-bold text-lg mb-2">Empatica EmbracePlus</div>
       <div class="flex gap-4 text-sm justify-center">
-        <span class="border c-border-primary-400 c-text-primary-400 rounded-full px-3.25 py-1.5 text-center">EDA</span>
-        <span class="border c-border-primary-400 c-text-primary-400 rounded-full px-3.25 py-1.5 text-center">HRV</span>
-        <span class="border c-border-primary-400 c-text-primary-400 rounded-full px-3.25 py-1.5 text-center">ACC</span>
+        <span class="border c-border-primary-300 c-white c-bg-primary-400 rounded-full px-3.25 py-1.5 text-center">EDA</span>
+        <span class="border c-border-primary-300 c-white c-bg-primary-400 rounded-full px-3.25 py-1.5 text-center">HRV</span>
+        <span class="border c-border-primary-300 c-white c-bg-primary-400 rounded-full px-3.25 py-1.5 text-center">ACC</span>
       </div>
     </div>
   </div>
-  <div v-click class="hw-grid-card border c-border-neutral-300 rounded-xl p-5 flex flex-row items-center gap-6">
-    <img src="./images/dante-logo.png" width="150" class="rounded-lg shrink-0" />
-    <div class="w-px h-16 c-bg-neutral-300 shrink-0" />
+  <div v-click class="hw-grid-card border c-border-primary-300 rounded-xl p-5 flex flex-row items-center gap-6">
+    <img src="./images/dante-logo.png" width="140" class="rounded-lg shrink-0" />
+    <div class="w-2px h-16 hidden shrink-0" />
     <div class="flex flex-1 flex-col items-center justify-center text-center">
       <div class="font-bold text-lg mb-2">DANTE</div>
       <div class="flex gap-4 text-sm justify-center">
-        <span class="border c-border-primary-400 c-text-primary-400 rounded-full px-3.25 py-1.5 text-center">Stress percepito</span>
+        <span class="border c-border-primary-300 c-white c-bg-primary-400 rounded-full px-3.25 py-1.5 text-center">Stress Percepito</span>
       </div>
     </div>
   </div>
@@ -284,6 +404,7 @@ layout: two-cols
 
 <style>
 .hw-grid-card {
+  background-color: rgba(255, 255, 255, 0.5);
   transition: transform 550ms cubic-bezier(0.22, 1, 0.36, 1), opacity 550ms cubic-bezier(0.22, 1, 0.36, 1), filter 550ms cubic-bezier(0.22, 1, 0.36, 1);
   transform-origin: center center;
   will-change: transform, opacity, filter;
@@ -305,22 +426,22 @@ layout: two-cols
 
 <div class="min-h-[390px] flex flex-col">
   <div class="grid grid-cols-4 gap-3">
-    <div v-click class="vh-stressor-card border c-border-neutral-300 rounded-xl p-3 flex flex-col items-center gap-1.5 text-center">
+    <div v-click class="vh-stressor-card shadow-md border c-border-primary-300 rounded-xl p-3 flex flex-col items-center gap-1.5 text-center">
       <carbon:user-avatar class="text-3xl c-text-primary-500" />
       <div class="font-bold text-sm">Realismo visivo</div>
       <div class="text-xs leading-snug">Interviewer fotorealistico con animazioni emotive</div>
     </div>
-    <div v-click class="vh-stressor-card border c-border-neutral-300 rounded-xl p-3 flex flex-col items-center gap-1.5 text-center">
+    <div v-click class="vh-stressor-card shadow-md border c-border-primary-300 rounded-xl p-3 flex flex-col items-center gap-1.5 text-center">
       <carbon:chat class="text-3xl c-text-primary-500" />
       <div class="font-bold text-sm">Dialogo generativo</div>
       <div class="text-xs leading-snug">Conversazione contestuale e non scriptata tramite LLM</div>
     </div>
-    <div v-click class="vh-stressor-card border c-border-neutral-300 rounded-xl p-3 flex flex-col items-center gap-1.5 text-center">
+    <div v-click class="vh-stressor-card shadow-md border c-border-primary-300 rounded-xl p-3 flex flex-col items-center gap-1.5 text-center">
       <carbon:pedestrian class="text-3xl c-text-primary-500" />
       <div class="font-bold text-sm">Comunicazione non verbale</div>
       <div class="text-xs leading-snug">Prossemica, espressioni e gestualità</div>
     </div>
-    <div v-click class="vh-stressor-card border c-border-neutral-300 rounded-xl p-3 flex flex-col items-center gap-1.5 text-center">
+    <div v-click class="vh-stressor-card shadow-md border c-border-primary-300 rounded-xl p-3 flex flex-col items-center gap-1.5 text-center">
       <carbon:warning-alt class="text-3xl c-text-primary-500" />
       <div class="font-bold text-sm">Tono valutativo</div>
       <div class="text-xs leading-snug">Personalità coerente progettata per indurre stress sociale</div>
@@ -337,6 +458,7 @@ layout: two-cols
 
 <style>
 .vh-stressor-card {
+  background-color: rgba(255, 255, 255, 0.5);
   transition: transform 550ms cubic-bezier(0.22, 1, 0.36, 1), opacity 550ms cubic-bezier(0.22, 1, 0.36, 1), filter 550ms cubic-bezier(0.22, 1, 0.36, 1);
   will-change: transform, opacity, filter;
 }
@@ -354,7 +476,7 @@ layout: two-cols
 
 <div class="w-full max-w-5xl mx-auto mt-15 relative">
   <div class="relative z-20">
-    <div class="text-s font-bold tracking-widest c-text-primary-700 mb-10 text-center w-full uppercase opacity-50">
+    <div class="text-s font-bold tracking-widest c-text-primary-900 mb-10 text-center w-full uppercase opacity-50">
       Fase Sperimentale
     </div>
     <div v-click class="hidden"></div>
@@ -496,9 +618,6 @@ flowchart LR
 ```
 
 <br>
-
-> Il modello è addestrato **solo sul baseline**. Durante il colloquio, un alto errore di ricostruzione segnala una deviazione dallo stato di riposo.
-
 <br>
 <br>
 
@@ -706,7 +825,7 @@ style: 'grid-template-columns: 1fr 2fr;'
 
 <style>
   .bar-face {
-    @apply bg-purple-600;
+    @apply bg-orange-600;
   }
   .bar-gaze {
     @apply bg-blue-400;
@@ -715,7 +834,7 @@ style: 'grid-template-columns: 1fr 2fr;'
     @apply bg-orange-600;
   }
   .bar-face-hrv {
-    @apply bg-lightblue-600;
+    @apply bg-blue-500;
   }
   .bar-gaze-scr {
     @apply bg-yellow-500;
