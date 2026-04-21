@@ -303,35 +303,35 @@ layout: two-cols
 
 <br>
 
-<div class="min-h-[430px] flex flex-col">
-  <div class="grid grid-cols-4 gap-4">
-    <div v-click class="vh-stressor-card border c-border-neutral-300 rounded-xl p-4 flex flex-col items-center gap-2 text-center">
-      <carbon:user-avatar class="text-4xl c-text-primary-500" />
-      <div class="font-bold">Realismo visivo</div>
-      <div class="text-sm">Interviewer fotorealistico con animazioni emotive</div>
+<div class="min-h-[390px] flex flex-col">
+  <div class="grid grid-cols-4 gap-3">
+    <div v-click class="vh-stressor-card border c-border-neutral-300 rounded-xl p-3 flex flex-col items-center gap-1.5 text-center">
+      <carbon:user-avatar class="text-3xl c-text-primary-500" />
+      <div class="font-bold text-sm">Realismo visivo</div>
+      <div class="text-xs leading-snug">Interviewer fotorealistico con animazioni emotive</div>
     </div>
-    <div v-click class="vh-stressor-card border c-border-neutral-300 rounded-xl p-4 flex flex-col items-center gap-2 text-center">
-      <carbon:chat class="text-4xl c-text-primary-500" />
-      <div class="font-bold">Dialogo generativo</div>
-      <div class="text-sm">Conversazione contestuale e non scriptata tramite LLM</div>
+    <div v-click class="vh-stressor-card border c-border-neutral-300 rounded-xl p-3 flex flex-col items-center gap-1.5 text-center">
+      <carbon:chat class="text-3xl c-text-primary-500" />
+      <div class="font-bold text-sm">Dialogo generativo</div>
+      <div class="text-xs leading-snug">Conversazione contestuale e non scriptata tramite LLM</div>
     </div>
-    <div v-click class="vh-stressor-card border c-border-neutral-300 rounded-xl p-4 flex flex-col items-center gap-2 text-center">
-      <carbon:pedestrian class="text-4xl c-text-primary-500" />
-      <div class="font-bold">Comunicazione non verbale</div>
-      <div class="text-sm">Prossemica, espressioni e gestualità</div>
+    <div v-click class="vh-stressor-card border c-border-neutral-300 rounded-xl p-3 flex flex-col items-center gap-1.5 text-center">
+      <carbon:pedestrian class="text-3xl c-text-primary-500" />
+      <div class="font-bold text-sm">Comunicazione non verbale</div>
+      <div class="text-xs leading-snug">Prossemica, espressioni e gestualità</div>
     </div>
-    <div v-click class="vh-stressor-card border c-border-neutral-300 rounded-xl p-4 flex flex-col items-center gap-2 text-center">
-      <carbon:warning-alt class="text-4xl c-text-primary-500" />
-      <div class="font-bold">Tono valutativo</div>
-      <div class="text-sm">Personalità coerente progettata per indurre stress sociale</div>
+    <div v-click class="vh-stressor-card border c-border-neutral-300 rounded-xl p-3 flex flex-col items-center gap-1.5 text-center">
+      <carbon:warning-alt class="text-3xl c-text-primary-500" />
+      <div class="font-bold text-sm">Tono valutativo</div>
+      <div class="text-xs leading-snug">Personalità coerente progettata per indurre stress sociale</div>
     </div>
   </div>
 
-  <div class="flex-1 flex items-center justify-center">
-    <img v-if="$clicks == 1" src="https://placehold.co/400x225?text=1" class="rounded shadow" width="300"/>
-    <img v-if="$clicks == 2" src="https://placehold.co/400x225?text=2" class="rounded shadow" width="300"/>
-    <img v-if="$clicks == 3" src="https://placehold.co/400x225?text=3" class="rounded shadow" width="300"/>
-    <img v-if="$clicks == 4" src="https://placehold.co/400x225?text=4" class="rounded shadow" width="300"/>
+  <div class="flex-1 flex items-center justify-center mt-4">
+    <img v-if="$clicks == 1" src="https://placehold.co/400x225?text=1" class="rounded shadow" width="450"/>
+    <img v-if="$clicks == 2" src="./images/google-gemini.png" class="rounded" width="350"/>
+    <img v-if="$clicks == 3" src="./images/screen-hello.png" class="rounded shadow" width="450"/>
+    <img v-if="$clicks == 4" src="./images/screen-office.png" class="rounded shadow" width="450"/>
   </div>
 </div>
 
