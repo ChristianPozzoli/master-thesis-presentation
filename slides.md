@@ -1254,14 +1254,16 @@ layout: two-cols
 
 ---
 layout: center
-class: text-center
+class: text-center final-slide
 ---
+
+<video autoplay muted loop class="background-video">
+  <source src="./images/capture.mp4" type="video/mp4">
+</video>
 
 # Grazie per l'attenzione
 
 **Christian Pozzoli**
-
-christian.pozzoli@studenti.unimi.it
 
 <div class="logo-bottom-left">
   <img src="./images/pong-logo.png" alt="PONG Logo" />
