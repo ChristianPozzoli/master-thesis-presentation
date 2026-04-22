@@ -164,53 +164,6 @@ style: 'grid-template-columns: 1fr 0.6fr;'
 </div>
 
 <style>
-.rq-container {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  height: 100%;
-  justify-content: center;
-}
-
-.rq-header {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--c-primary-700);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 0.5rem;
-  padding-bottom: 0.7rem;
-  border-bottom: 2px solid var(--c-primary-300);
-}
-
-.rq-card {
-  display: flex;
-  gap: 0.8rem;
-  padding: 0.75rem 1rem;
-  border-left: 3px solid var(--c-primary-400);
-  background: rgba(255, 255, 255, 0.25);
-  border-radius: 0.5rem;
-  transition: all 300ms cubic-bezier(0.22, 1, 0.36, 1);
-  align-items: center;
-}
-
-.rq-number {
-  flex-shrink: 0;
-  font-weight: 700;
-  font-size: 0.95rem;
-  color: var(--c-primary-600);
-  min-width: 32px;
-}
-
-.rq-content {
-  font-size: 0.8rem;
-  line-height: 1.35;
-  color: var(--c-primary-900);
-  text-align: left;
-}
-</style>
-
-<style>
 .objectives-timeline {
   position: relative;
   height: 300px;
@@ -1069,12 +1022,32 @@ layout: two-cols
 
 # Conclusioni
 
-<br>
-
-- Lo stress sociale in VR è rilevabile in modo non invasivo da telemetria commodity
-- Il face tracking è il segnale più discriminativo
-- La dimensione psicologica correla più di quella fisiologica
-- Lo stress è un fenomeno soggetto-dipendente
+<div class="rq-container mr-16 -mt-5">
+  <div class="rq-card">
+    <div class="rq-number">01</div>
+    <div class="rq-content">La telemetria da VR classifica efficacemente lo stress sociale in modo non invasivo</div>
+  </div>
+  
+  <div class="rq-card">
+    <div class="rq-number">02</div>
+    <div class="rq-content">Il reconstruction error rileva deviazioni dal baseline, con efficacia soggetto-dipendente</div>
+  </div>
+  
+  <div class="rq-card">
+    <div class="rq-number">03</div>
+    <div class="rq-content">La dimensione psicologica correla più di quella fisiologica</div>
+  </div>
+  
+  <div class="rq-card">
+    <div class="rq-number">04</div>
+    <div class="rq-content">Il face tracking è il segnale più discriminativo</div>
+  </div>
+  
+  <div class="rq-card">
+    <div class="rq-number">05</div>
+    <div class="rq-content">Il modello anticipa la risposta autonomica</div>
+  </div>
+</div>
 
 ::right::
 
@@ -1092,7 +1065,7 @@ layout: two-cols
         </div>
         <div class="future-slot future-slot-right-top">
           <div class="future-item-shell">
-            <div v-click class="future-item">Separazione<br>del<br>parlato</div>
+            <div v-click class="future-item">Separazione<br>del parlato</div>
           </div>
         </div>
         <div class="future-slot future-slot-right-bottom">
