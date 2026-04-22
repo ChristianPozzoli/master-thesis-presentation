@@ -280,6 +280,32 @@
   text-align: left;
 }
 
+.logo-bottom-left {
+  position: absolute;
+  bottom: 80px;
+  left: 40px;
+  z-index: 10;
+}
+
+.logo-bottom-left img {
+  height: 60px;
+  width: auto;
+  opacity: 1;
+}
+
+.logo-bottom-right {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  z-index: 10;
+}
+
+.logo-bottom-right img {
+  height: 160px;
+  width: auto;
+  opacity: 1;
+}
+
 .slidev-progress > div,
 .slidev-progress > span {
   height: 100%;

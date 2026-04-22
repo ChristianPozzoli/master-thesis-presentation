@@ -12,15 +12,15 @@ drawings:
   persist: false
 transition: slide-left
 title: ALESSIA - Affective Latent Evaluation of Social Stress
-class: text-center
+class: text-center c-text-primary-700
 layout: cover
 ---
 
-<div class="logo-top-left">
+<div class="logo-bottom-left">
   <img src="./images/pong-logo.png" alt="PONG Logo" />
 </div>
 
-<div class="logo-top-right">
+<div class="logo-bottom-right">
   <img src="./images/statale-unimi-logo.png" alt="Statale Unimi Logo" />
 </div>
 
@@ -36,34 +36,6 @@ Anno Accademico 2024-2025
 ### Laurea Magistrale in Informatica
 
 <br>
-
-<style>
-.logo-top-left {
-  position: absolute;
-  bottom: 80px;
-  left: 40px;
-  z-index: 10;
-}
-
-.logo-top-left img {
-  height: 60px;
-  width: auto;
-  opacity: 1;
-}
-
-.logo-top-right {
-  position: absolute;
-  bottom: 40px;
-  right: 40px;
-  z-index: 10;
-}
-
-.logo-top-right img {
-  height: 160px;
-  width: auto;
-  opacity: 1;
-}
-</style>
 
 ---
 layout: two-cols
@@ -402,7 +374,7 @@ style: 'grid-template-columns: 1fr 0.6fr;'
   </div>
 
   <div class="flex-1 flex items-center justify-center mt-4">
-    <img v-if="$clicks == 0" src="https://placehold.co/400x225?text=1" class="rounded shadow" width="450"/>
+    <img v-if="$clicks == 0" src="./images/face.png" class="rounded shadow" width="450"/>
     <img v-if="$clicks == 1" src="./images/google-gemini.png" class="rounded" width="350"/>
     <img v-if="$clicks == 2" src="./images/screen-hello.png" class="rounded shadow" width="450"/>
     <img v-if="$clicks == 3" src="./images/screen-office.png" class="rounded shadow" width="450"/>
@@ -1291,4 +1263,10 @@ class: text-center
 
 christian.pozzoli@studenti.unimi.it
 
+<div class="logo-bottom-left">
+  <img src="./images/pong-logo.png" alt="PONG Logo" />
+</div>
 
+<div class="logo-bottom-right">
+  <img src="./images/statale-unimi-logo.png" alt="Statale Unimi Logo" />
+</div>
