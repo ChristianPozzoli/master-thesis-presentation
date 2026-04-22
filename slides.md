@@ -84,9 +84,9 @@ layout: two-cols
 ::right::
 
 <div class="flex flex-col items-center gap-5">
-	<img src="./images/doubt-la-noire.png" class="rounded shadow" width="250"/>
 	<img src="./images/vr.png" class="rounded shadow" width="250"/>
 	<img src="./images/nvidia-ace.jpg" class="rounded shadow" width="250"/>
+	<img src="./images/doubt-la-noire.png" class="rounded shadow" width="250"/>
 </div>
 
 ---
@@ -315,8 +315,8 @@ style: 'grid-template-columns: 1fr 0.6fr;'
     <div class="flex flex-1 flex-col items-center justify-center text-center">
       <div class="font-bold text-lg mb-2">Unreal</div>
       <div class="flex gap-4 text-sm justify-center">
-        <span class="c-white c-bg-primary-500 rounded-full px-3.25 py-1.5 text-center">MetaXR</span>
         <span class="c-white c-bg-primary-500 rounded-full px-3.25 py-1.5 text-center">MetaHuman</span>
+        <span class="c-white c-bg-primary-500 rounded-full px-3.25 py-1.5 text-center">MetaXR</span>
       </div>
     </div>
   </div>
@@ -373,7 +373,7 @@ style: 'grid-template-columns: 1fr 0.6fr;'
 
 ---
 
-# Il Virtual Human come Stressor
+# Il Virtual Human come Stressore
 
 <br>
 
@@ -527,8 +527,7 @@ style: 'grid-template-columns: 1fr 0.6fr;'
 ---
 
 # Architettura del Modello
-
-<br>
+<p><strong>LSTM-VAE</strong></p>
 
 ```mermaid
 flowchart LR
@@ -569,12 +568,61 @@ flowchart LR
     %% Link styling
     linkStyle default stroke:#94a3b8,stroke-width:2px,fill:none
 ```
+<br>
+<div class="insight-box">
+  <div class="insight-icon">></div>
+  <div class="insight-text">Un errore elevato indica una deviazione anomala</div>
+</div>
 
-<br>
-<br>
-<br>
+<div class="insight-box">
+  <div class="insight-icon">></div>
+  <div class="insight-text">Lo spazio latente rappresenta una distribuzione di probabilità</div>
+</div>
 
+<div class="insight-box">
+  <div class="insight-icon">></div>
+  <div class="insight-text">La componente LSTM gestisce sequenze temporali</div>
+</div>
+
+<div class="insight-box">
+  <div class="insight-icon">></div>
+  <div class="insight-text">Il modello viene addestrato solo con i dati di baseline</div>
+</div>
+
+<style>
+.insight-box {
+  display: flex;
+  gap: 0.6rem;
+  padding: 0.6rem 0.8rem;
+  margin: 0.35rem 0;
+  border-left: 4px solid var(--c-primary-500);
+  background: linear-gradient(135deg, rgba(var(--c-primary-50-rgb), 0.6) 0%, rgba(255, 255, 255, 0.3) 100%);
+  border-radius: 0.6rem;
+  align-items: flex-start;
+  transition: all 300ms cubic-bezier(0.22, 1, 0.36, 1);
+  backdrop-filter: blur(10px);
+}
+
+.insight-icon {
+  flex-shrink: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--c-primary-500);
+  line-height: 1;
+  margin-top: 0.0rem;
+}
+
+.insight-text {
+  font-size: 0.72rem;
+  line-height: 1.75;
+  color: var(--c-primary-900);
+  text-align: left;
+}
+</style>
+
+<!--
 <img src="./images/stress_plot_subject_eye_tracking.png" class="rounded shadow"/>
+-->
 
 ---
 layout: two-cols
@@ -1189,7 +1237,7 @@ layout: two-cols
   max-width: 190px;
   border: 1px solid var(--c-primary-300);
   border-radius: 0.8rem;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.7);
   color: var(--c-primary-900);
   font-size: 0.86rem;
   font-weight: 600;
